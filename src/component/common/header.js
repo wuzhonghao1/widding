@@ -12,7 +12,7 @@ class Header extends Component {
                         <ul>
                             <li>400-0521-202</li>
                             <li id="tmall"><img style={{ "paddingTop":2}} src="picture/tmall.png" alt="" /></li>
-                            <li><a href="https://weibo.com/only5551" target="_blank"><img src="picture/weibo.png" alt="" /></a></li>
+                            <li><a><img src="picture/weibo.png" alt="" /></a></li>
                             <li id="weixin"><img src="picture/weixin.png" alt="" /></li>
                         </ul>
                     </div>
@@ -21,12 +21,11 @@ class Header extends Component {
                     <div className="header"> <a href="/"> <img className="logo" src="picture/logo.jpg" alt="" /></a>
                         <ul className="nav">
                             <li><a href="/">首页</a></li>
-                            <li><a href="/www/">品牌简介</a></li>
-                            <li><a href="/sanyakz/">真实客片</a></li>
-                            <li><a href="/sanyawan/">旅拍作品</a></li>
-                            <li><a href="/sanyady/">微电影</a></li>
-                            <li><a href="/index.php?m=content&c=index&a=lists&catid=105">每周客片</a></li>
-                            <li><a href="/index.php?m=content&c=index&a=lists&catid=11">新闻中心</a></li>
+                            <li><a href="/brand">品牌简介</a></li>
+                            <li><a href="/sanyakz">真实客片</a></li>
+                            <li><a href="/sanyawan">旅拍作品</a></li>
+                            <li><a href="/sanyady">微电影</a></li>
+                            <li><a href="/news">新闻中心</a></li>
                             <li><a href="#">明星网红</a>
                                 <ul
                                     style={{"display":"none","position":"absolute","zIndex":999,"top":100,"color":"#000","width":100,"backgroundColor":"rgba(0,0,0,0.5)","height":96,"paddingTop":10,"textAlign":"center"}}>
@@ -34,8 +33,8 @@ class Header extends Component {
                                     <a href="/bldwh/" style={{"color":"#fff","fontSize":"16px","paddingLeft":"17px"}}>网红专区</a>
                                 </ul>
                             </li>
-                            <li><a href="/index.php?m=content&c=index&a=lists&catid=183">真实好评</a></li>
-                            <li><a href="/index.php?m=content&c=index&a=lists&catid=14">优惠活动</a></li>
+                            <li><a href="/real">真实好评</a></li>
+                            <li><a href="/activity">优惠活动</a></li>
                         </ul>
                         <dl style={{"paddingRight":0}}>
                             <dd className="index_0"><a><img src="picture/china.png" alt="中国" /></a></dd>
@@ -53,13 +52,13 @@ class Header extends Component {
                             <li><img src="picture/place.png" alt="" /><a href="/sanyawan/">三亚</a></li>{/****这里循环 */}
 			            </ul>
                         <ul className="ul1_1">
-                            <li><img src="picture/place.png" alt="" /><a href="/index.php?m=content&c=index&a=lists&catid=58">西藏</a></li>{/****这里循环 */}
+                            <li><img src="picture/place.png" alt="" /><a href="/xizang">西藏</a></li>{/****这里循环 */}
 			            </ul>
 		            </div>
                     <div className="index-slide" style={{"display": "none"}} id="index_1">
                     <ul className="ul2_2">
                     <li><img src="picture/place.png" alt="" /><a href="/pujidaozp/">普吉岛</a></li>
-                    <li><img src="picture/place.png" alt="" /><a href="/index.php?m=content&c=index&a=lists&catid=61">巴厘岛</a>
+                    <li><img src="picture/place.png" alt="" /><a href="/index.php">巴厘岛</a>
                     </li>
                     <li><img src="picture/place.png" alt="" /><a href="/maerdaifuzp/">马尔代夫</a></li>
                     <li><img src="picture/place.png" alt="" /><a href="/index.php?m=content&c=index&a=lists&catid=63">日本</a>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Switch, Router } from 'react-router-dom';
+import { Route, Switch, HashRouter } from 'react-router-dom';
 import Index from "./page/index"
 import News from "./page/news"
 import ErrorPage from "./page/error"
@@ -12,7 +12,7 @@ class SystemRoute extends Component {
     }
     render() {
         return (
-            <Router>
+            <HashRouter>
                 <Switch>
                     {/* 提前采购 */}
                     <Route exact path="/" component={Index} />
@@ -23,7 +23,7 @@ class SystemRoute extends Component {
                     {/* 空页面 */}
                     <Route path="/empty" component={Empty} />
                 </Switch>
-            </Router>
+            </HashRouter>
         )
     }
 }
