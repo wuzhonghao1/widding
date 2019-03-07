@@ -11,12 +11,10 @@ const requireContext = require.context("../../static/picture", true, /\.(jpg|jpe
 const images = requireContext.keys()
 class Header extends Component {
     state = {
-        chinaData:{}
+        
     }
     async componentDidMount(){
-        await this.setState({
-            chinaData: chinaData
-        })
+       
     }
     getImages = (url) => {
         let image = require("../../static/picture" + images.filter(x => x === url)[0].slice(1))
@@ -41,19 +39,19 @@ class Header extends Component {
                         {/* 这里循环数据 */}
                             <li><Link to="/">首页</Link></li>
                             <li><Link to="/brand">品牌简介</Link></li>
-                            <li><a href="/">真实客片</a></li>
-                            <li><a href="/sanywan">旅拍作品</a></li>
-                            <li><a href="/">微电影</a></li>
+                            <li><Link to="/">真实客片</Link></li>
+                            <li><Link to="/">旅拍作品</Link></li>
+                            <li><Link to="/">微电影</Link></li>
                             <li><Link to="/news">新闻中心</Link></li>
-                            <li><a href="#">明星网红</a>
+                            <li><Link to="#">明星网红</Link>
                                 <ul
                                     style={{"display":"none","position":"absolute","zIndex":999,"top":100,"color":"#000","width":100,"backgroundColor":"rgba(0,0,0,0.5)","height":96,"paddingTop":10,"textAlign":"center"}}>
                                     <a href="/" style={{"color":"#fff","fontSize":"16px","paddingLeft":"17px"}}>明星专区</a>
                                     <a href="/" style={{"color":"#fff","fontSize":"16px","paddingLeft":"17px"}}>网红专区</a>
                                 </ul>
                             </li>
-                            <li><a href="/">真实好评</a></li>
-                            <li><a href="/">优惠活动</a></li>
+                            <li><Link to="/">真实好评</Link></li>
+                            <li><Link to="/">优惠活动</Link></li>
                         </ul>
                         <dl style={{"paddingRight":0}}>
                             <dd className="index_0"><a><img src={this.getImages('./china.png')} 
