@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
-const requireContext = require.context("../../static/picture", true, /^\.\/.*\.png$/);
+const requireContext = require.context("../../static/picture", true, /\.(jpg|jpeg|png)$/);
 const images = requireContext.keys()
 class Header extends Component {
     state = {
 
     }
-    getImages = (b) => {
-        let image = require("../../static/picture" + images.filter(x => x === b)[0].slice(1))
+    getImages = (url) => {
+        let image = require("../../static/picture" + images.filter(x => x === url)[0].slice(1))
         return image
     }
     render() {
