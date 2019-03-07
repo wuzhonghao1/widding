@@ -41,19 +41,19 @@ class Header extends Component {
                         {/* 这里循环数据 */}
                             <li><Link to="/">首页</Link></li>
                             <li><Link to="/brand">品牌简介</Link></li>
-                            <li><a href="/sanyakz">真实客片</a></li>
-                            <li><a href="/sanyawan">旅拍作品</a></li>
-                            <li><a href="/sanyady">微电影</a></li>
+                            <li><a href="/">真实客片</a></li>
+                            <li><a href="/sanywan">旅拍作品</a></li>
+                            <li><a href="/">微电影</a></li>
                             <li><Link to="/news">新闻中心</Link></li>
                             <li><a href="#">明星网红</a>
                                 <ul
                                     style={{"display":"none","position":"absolute","zIndex":999,"top":100,"color":"#000","width":100,"backgroundColor":"rgba(0,0,0,0.5)","height":96,"paddingTop":10,"textAlign":"center"}}>
-                                    <a href="/youhui/" style={{"color":"#fff","fontSize":"16px","paddingLeft":"17px"}}>明星专区</a>
-                                    <a href="/bldwh/" style={{"color":"#fff","fontSize":"16px","paddingLeft":"17px"}}>网红专区</a>
+                                    <a href="/" style={{"color":"#fff","fontSize":"16px","paddingLeft":"17px"}}>明星专区</a>
+                                    <a href="/" style={{"color":"#fff","fontSize":"16px","paddingLeft":"17px"}}>网红专区</a>
                                 </ul>
                             </li>
-                            <li><a href="/real">真实好评</a></li>
-                            <li><a href="/activity">优惠活动</a></li>
+                            <li><a href="/">真实好评</a></li>
+                            <li><a href="/">优惠活动</a></li>
                         </ul>
                         <dl style={{"paddingRight":0}}>
                             <dd className="index_0"><a><img src={this.getImages('./china.png')} 
