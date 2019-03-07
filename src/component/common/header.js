@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 const requireContext = require.context("../../static/picture", true, /\.(jpg|jpeg|png)$/);
 const images = requireContext.keys()
 class Header extends Component {
@@ -26,12 +27,12 @@ class Header extends Component {
                     <div className="header"> <a href="/"> <img className="logo" src="/static/picture/logo.jpg" alt="" /></a>
                         <ul className="nav">
                         {/* 这里循环数据 */}
-                            <li><a href="/">首页</a></li>
-                            <li><a href="/brand">品牌简介</a></li>
+                            <li><Link to="/">首页</Link></li>
+                            <li><Link to="/brand">品牌简介</Link></li>
                             <li><a href="/sanyakz">真实客片</a></li>
                             <li><a href="/sanyawan">旅拍作品</a></li>
                             <li><a href="/sanyady">微电影</a></li>
-                            <li><a href="/news">新闻中心</a></li>
+                            <li><Link to="/news">新闻中心</Link></li>
                             <li><a href="#">明星网红</a>
                                 <ul
                                     style={{"display":"none","position":"absolute","zIndex":999,"top":100,"color":"#000","width":100,"backgroundColor":"rgba(0,0,0,0.5)","height":96,"paddingTop":10,"textAlign":"center"}}>
