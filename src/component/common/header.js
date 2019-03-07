@@ -1,10 +1,22 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+
+import chinaData from "../../data/chinaData"
+import chinaData1 from "../../data/chinaData1"
+import foreignData from "../../data/foreignData"
+import foreignData1 from "../../data/foreignData1"
+
+
 const requireContext = require.context("../../static/picture", true, /\.(jpg|jpeg|png)$/);
 const images = requireContext.keys()
 class Header extends Component {
     state = {
-
+        chinaData:{}
+    }
+    async componentDidMount(){
+        await this.setState({
+            chinaData: chinaData
+        })
     }
     getImages = (url) => {
         let image = require("../../static/picture" + images.filter(x => x === url)[0].slice(1))
@@ -57,33 +69,18 @@ class Header extends Component {
                     </div>
                     <div className="index-slide" id="index_0">
                         <ul className="ul2_1">
-                            <li><img src={this.getImages('./place.png')}  alt="" /><a href="/sanyawan/">三亚</a></li>{/* 这里循环数据 */}
+                            {chinaData.map(item => <li key={item.key}><img src={this.getImages(item.imgUrl)} alt="" /><Link to={item.url}>{item.name}</Link></li>)}
 			            </ul>
                         <ul className="ul1_1">
-                            <li><img src={this.getImages('./place.png')} alt="" /><a href="/xizang">西藏</a></li>{/* 这里循环数据 */}
+                            {chinaData1.map(item => <li key={item.key}><img src={this.getImages(item.imgUrl)} alt="" /><Link to={item.url}>{item.name}</Link></li>)}
 			            </ul>
 		            </div>
                     <div className="index-slide" style={{"display": "none"}} id="index_1">
                         <ul className="ul2_2">
-                            {/* 这里循环数据 */}
-                            <li><img src="/static/picture/place.png" alt="" /><a href="/pujidaozp/">普吉岛</a></li>
-                            <li><img src="/static/picture/place.png" alt="" /><a href="/index.php">巴厘岛</a></li>
-                            <li><img src="/static/picture/place.png" alt="" /><a href="/maerdaifuzp/">马尔代夫</a></li>
-                            <li><img src="/static/picture/place.png" alt="" /><a href="/index.php?m=content&c=index&a=lists&catid=63">日本</a></li>
-                            <li><img src="/static/picture/place.png" alt="" /><a href="/index.php?m=content&c=index&a=lists&catid=64">巴黎</a></li>
-                            <li><img src="/static/picture/place.png" alt="" /><a href="/index.php?m=content&c=index&a=lists&catid=65">布拉格</a></li>
-                            <li className="move-right2"><img src="/static/picture/place.png" alt="" /><a href="/index.php?m=content&c=index&a=lists&catid=66">普罗旺斯</a></li>
-                            <li className="move-right2"><img src="/static/picture/place.png" alt="" /><a href="/index.php?m=content&c=index&a=lists&catid=67">伦敦</a></li>
-                            <li className="move-right2"><img src="/static/picture/place.png" alt="" /><a href="/index.php?m=content&c=index&a=lists&catid=68">圣托里尼</a></li>
-                            <li className="move-right2"><img src="/static/picture/place.png" alt="" /><a href="/index.php?m=content&c=index&a=lists&catid=69">威尼斯</a></li>
+                            {foreignData.map(item => <li key={item.key}><img src={this.getImages(item.imgUrl)} alt="" /><Link to={item.url}>{item.name}</Link></li>)}
                         </ul>
                         <ul className="ul1_2">
-                            {/* 这里循环数据 */}
-                            <li><img src="/static/picture/place.png" alt="" /><a href="/index.php?m=content&c=index&a=lists&catid=70">罗马</a></li>
-                            <li><img src="/static/picture/place.png" alt="" /><a href="/index.php?m=content&c=index&a=lists&catid=75">毛里求斯</a></li>
-                            <li><img src="/static/picture/place.png" alt="" /><a href="/index.php?m=content&c=index&a=lists&catid=76">留尼旺</a></li>
-                            <li><img src="/static/picture/place.png" alt="" /><a href="/index.php?m=content&c=index&a=lists&catid=193">纽约</a></li>
-                            <li><img src="/static/picture/place.png" alt="" /><a href="/index.php?m=content&c=index&a=lists&catid=194">洛杉矶</a></li>
+                            {foreignData1.map(item => <li key={item.key}><img src={this.getImages(item.imgUrl)} alt="" /><Link to={item.url}>{item.name}</Link></li>)}
                         </ul>
                     </div>
                     <div style={{"position":'absolute','right':126,'top':20, 'zIndex':9999}}>
