@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 
-class News extends Component {
+class Comment extends Component {
     render() {
         return (
             <div style={{marginTop:"135px"}}>
-                这里是新闻页！
+               这里是真实评价页面！
             </div>
         )
     }
 }
-export default News
+export default Comment

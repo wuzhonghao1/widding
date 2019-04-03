@@ -5,7 +5,7 @@ export default class error extends Component {
         return (
             <div>
                 这是一个错误页面！（404）
-      </div>
+          </div>
         )
     }
 }

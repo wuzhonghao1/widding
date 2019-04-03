@@ -81,6 +81,9 @@ module.exports = function(webpackEnv) {
         options: cssOptions,
       },
       {
+        loader: require.resolve('less-loader'),
+      },
+      {
         // Options for PostCSS as we reference these options twice
         // Adds vendor prefixing based on your specified browser support in
         // package.json

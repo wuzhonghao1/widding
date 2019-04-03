@@ -1,8 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { HashRouter as Router, Route, Switch } from 'react-router-dom';
-import './index.css';
 import './static/css/style.css';
+
+// import './index.less';
+import "../node_modules/antd/dist/antd.less";
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
