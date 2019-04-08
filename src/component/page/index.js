@@ -17,13 +17,13 @@ class Index extends Component {
         return (
             <div>
                 <div className="index_all_video" style={{position:"relative",height:"480px",width:"100%",marginTop:"135px"}}>
-                    <video id="index_all_video" autoPlay={""} loop={"loop"} muted={true} width={"100%"} height={"100%"} style={{objectFit:"fill"}} src={"https://cloud.video.taobao.com//play/u/1057559553/p/2/e/6/t/1/50227372667.mp4"} name={"media"}>
+                    <video id="index_all_video" autoPlay="" loop="loop" muted={true} width="100%" height="100%" style={{objectFit:"fill"}} src="https://cloud.video.taobao.com//play/u/1057559553/p/2/e/6/t/1/50227372667.mp4" name="media">
                     您的浏览器不支持 video 标签。
                     </video>
                     <div className="index_zw"></div>
                     <div className="i-all">
                         <div className="i-content">
-                            <img className="img-fluid i-english" src={"https://img.bj520.com/newtheme/images/icon/logo_2.png"} alt={""}/>
+                            <img className="img-fluid i-english" src="https://img.bj520.com/newtheme/images/icon/logo_2.png" alt=""/>
                         </div> 
                     </div>
                 </div>
