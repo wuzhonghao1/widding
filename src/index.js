@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 import './static/css/style.css';
+// import './static/css/slick.css';
+// import './static/css/slick-theme.css';
 import './index.css';
 import "../node_modules/antd/dist/antd.css";
 import App from './App';

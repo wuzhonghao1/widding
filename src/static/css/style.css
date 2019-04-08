@@ -1,4 +1,6 @@
 @charset "utf-8";
+/* @import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css"; */
 /* @font-face { font-family: 'DINCond-Bold'; src: url('../fonts/DINCond-Bold.eot'); src: local('DINCond-Bold'), local('DINCond-Bold'), url('../fonts/DINCond-Bold.woff') format('woff'), url('../fonts/DINCond-Bold.ttf') format('truetype'), url('../fonts/DINCond-Bold.svg#DINCond-Bold') format('svg'); } */
 /* @font-face { font-family: 'COUTURE-BLD_0'; src: url('../fonts/COUTURE-BLD_0.eot'); src: local('COUTURE-BLD_0'), local('COUTURE-BLD_0'), url('../fonts/COUTURE-BLD_0.woff') format('woff'), url('../fonts/COUTURE-BLD_0.ttf') format('truetype'), url('../fonts/COUTURE-BLD_0.svg#COUTURE-BLD_0') format('svg'); } */
 html { color: #000; background: #FFF; }
@@ -60,7 +62,7 @@ transform:none
 .header img.logo { float: left; margin-left:3%}
 .header img.logo:hover { transform: scale(1); }
 .header a { color: #c0af93; }
-.moka{float:left;font-weight: normal;padding-top:27px;padding-left:20px;}
+.moka{float:left;font-weight: normal;padding-top:27px;padding-left:20px;color:#fff;}
 .header .nav { width: 60%; float: left; padding: 36px 0 43px 90px; font-size: 16px; }
 .header .nav li { float: left; padding-right: 1.8%; padding-left: 1.8%; height: 21px; overflow: hidden; }
 .header .nav li a { transition: 0.3s cubic-bezier(0.1, 0.1, 0.5, 1.4); margin-top: 0px; margin-bottom:50px; margin-top: -23px; color: #FFF; font-family: "COUTURE-BLD_0", \5FAE\8F6F\96C5\9ED1 }
@@ -105,26 +107,41 @@ img {
     border-style: none;
 }
 /*首页走马灯*/
+.ant-carousel{
+    height:480px;
+}
 .ant-carousel .slick-slider {
-    text-align: center;
-    height: 160px;
-    line-height: 160px;
-    background: #364d79;
-    overflow: hidden;
-  }
-  
-  .ant-carousel .slick-slider h3 {
-    color: #fff;
-  }
-/* .ant-carousel .slick-slide {
     float: left;
-    height:577px;
+    height:480px;
     overflow: hidden;
-    width: 1360px;
+    width: 100%;
     max-width:1920px;
-    margin-top:700px;
   }
-  .ant-carousel .slick-slide img {
-    
-  } */
 
+  .ant-carousel .slick-slider img {
+    height:480px;
+    width: 100%;
+  }
+
+  .brand_words {
+    text-align: center;
+    margin-bottom: 3%;
+}
+.brand_words h1 {
+    font-family: "Didot";
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+.brand_words p {
+    font-family: "黑体";
+    font-size: 1.5rem;
+    margin-bottom: 1%;
+    color: #212529;
+}
+.brand_words span {
+    font-family: "Arial";
+    font-size: 0.8rem;
+    display: block;
+    width: 100%;
+    transform: scale(0.64);
+}

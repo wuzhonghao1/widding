@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import { Carousel } from 'antd';
 import { Button } from 'antd';
+import CenterMode from '../centermode';
+// import Slider from "react-slick";
+// import "../node_modules/slick-carousel/slick/slick.css";
+// import "../node_modules/slick-carousel/slick/slick-theme.css";
 
 
 const requireContext = require.context("../../static/picture", true, /\.(jpg|jpeg|png)$/);
@@ -15,7 +19,7 @@ class Index extends Component {
     render() {
         return (
             <div>
-                <div class="index_all_video" style={{position:"relative",height:"470px",width:"100%",marginTop:"135px"}}>
+                <div class="index_all_video" style={{position:"relative",height:"480px",width:"100%",marginTop:"135px"}}>
                     <video id="index_all_video" autoplay="" loop="loop" muted="true" width="100%" height="100%" style={{objectFit:"fill"}} src="https://cloud.video.taobao.com//play/u/1057559553/p/2/e/6/t/1/50227372667.mp4" name="media">
                     您的浏览器不支持 video 标签。
                     </video>
@@ -26,21 +30,24 @@ class Index extends Component {
                         </div> 
                     </div>
                 </div>
-                <br/>
-                <Button type="primary">Button</Button>
+                <div class="brand_words" style={{ marginTop: "3%"}}>
+                    <p style={{marginBottom: "2%"}}>摩卡视觉 MK VISION</p>
+                    <span>FRIEND IS WHO CAN GIVE YOU STRENGTH AT LAST LOVE IS A LAMP,WHILE FRIENDSHIP IS THE SHADOW.WHEN WHE LAMP IS OFF.YOU WILL</span>
+                    <span>FIND THE SHADOW EVERYWHERE.FRIEND IS WHO CAN GIVE YOU STRENGTH AT LAST.</span>
+                </div>
                 <Carousel autoplay>
-                    <div><h3>1</h3></div>
-                    <div><h3>2</h3></div>
-                    <div><h3>3</h3></div>
-                    <div><h3>4</h3></div>
-                </Carousel>
-                {/* <Carousel autoplay>
                 <div><img className="img-fluid" src={this.getImages('./homebn00.jpg')} alt=""/></div>
                 <div><img className="img-fluid" src={this.getImages('./homebn001.jpg')} alt=""/></div>
                 <div><img className="img-fluid" src={this.getImages('./homebn002.jpg')} alt=""/></div>
                 <div><img className="img-fluid" src={this.getImages('./homebn003.jpg')} alt=""/> </div>                 
-                </Carousel> */}
-
+                </Carousel>
+                <div class="brand_words" style={{ marginTop:"5.3%"}}>
+                    <h1>LATEST WEDDING PHOTOS</h1>
+                    <p style={{marginBottom: "2%"}}>摩卡视觉 最新客照</p>
+                    <span>FRIEND IS WHO CAN GIVE YOU STRENGTH AT LAST LOVE IS A LAMP,WHILE FRIENDSHIP IS THE SHADOW.WHEN WHE LAMP IS OFF.YOU WILL</span>
+                    <span>FIND THE SHADOW EVERYWHERE.FRIEND IS WHO CAN GIVE YOU STRENGTH AT LAST.</span>
+                </div>
+                <CenterMode />
                 
             </div>
         )
