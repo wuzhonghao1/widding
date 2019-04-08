@@ -1,9 +1,7 @@
 import React, { Component } from "react";
+import {Carousel} from "antd";
 import Slider from "react-slick";
-// import "~slick-carousel/slick/slick.css";
-// import "~slick-carousel/slick/slick-theme.css";
-// import "../node_modules/slick-carousel/slick/slick.css";
-// import "../node_modules/slick-carousel/slick/slick-theme.css";
+
 
 class CenterMode extends React.Component{
   render() {
@@ -13,10 +11,11 @@ class CenterMode extends React.Component{
       infinite: true,
       centerPadding: "60px",
       slidesToShow: 3,
-      speed: 500
+      speed: 500,
+      autoPlay:true
     };
     return (
-        <Slider {...settings}>
+        <Carousel {...settings}>
             <div>
               <h3>1</h3>
             </div>
@@ -35,7 +34,7 @@ class CenterMode extends React.Component{
             <div>
               <h3>6</h3>
             </div>
-      </Slider>
+      </Carousel>
     );
   }
 }
