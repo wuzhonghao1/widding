@@ -3,7 +3,7 @@ import { Carousel } from 'antd';
 import { Button } from 'antd';
 import CenterMode from '../centermode';
 import { Link } from 'react-router-dom';
-// import $ from  'jquery';
+import $ from  'jquery';
 // import '../../static/js/jquery.min.js';
 // import '../../static/js/jquery.carouFredSel-6.0.4-packed.js';
 // import '../../static/js/jquery.SuperSlide.2.1.1.js';
@@ -62,10 +62,11 @@ class Index extends Component {
                     <span>FRIEND IS WHO CAN GIVE YOU STRENGTH AT LAST LOVE IS A LAMP,WHILE FRIENDSHIP IS THE SHADOW.WHEN WHE LAMP IS OFF.YOU WILL</span>
                     <span>FIND THE SHADOW EVERYWHERE.FRIEND IS WHO CAN GIVE YOU STRENGTH AT LAST.</span>
                 </div>
-                <div class="wrap_news">
-                    <div className="news"> 
-                    <a className="next"><img src={this.getImages('./prev.png')} alt="" /></a> 
-                    <a className="prev"><img src={this.getImages('./next.png')} alt="" /></a>
+                {/* <div className="picScroll-left">
+                    <div className="hd"> 
+                        <a className="next"></a> 
+                        <a className="prev"></a>
+                    </div>
                     <div className="bd">
                         <div className="tempWrap" style={{overflow:"hidden", position:"relative", width:"1192px"}}>
                             <ul className="picList" style={{width:"3874px", position:"relative", overflow:"hidden", padding:"0px", margin:"0px", left: "-1788px"}}>
@@ -90,7 +91,7 @@ class Index extends Component {
                                     </Link> 
                                 </li>
                                 <li style={{float: "left", width: "270px"}}> 
-                                <Link to="/news">
+                                    <Link to="/news">
                                         <div className="pic"><img src={this.getImages('./gexing.jpg')} /></div>
                                         <div className="txt">
                                             <h2>摩卡视觉教你拍个性婚纱照</h2>
@@ -160,7 +161,7 @@ class Index extends Component {
                                     </Link> 
                                 </li>
                                 <li className="clone" style={{float: "left", width: "270px"}}> 
-                                <Link to="/news">
+                                    <Link to="/news">
                                         <div className="pic"><img src={this.getImages('./mofan.jpg')} /></div>
                                         <div className="txt">
                                             <h2>如何选好自己的婚纱照</h2>
@@ -202,8 +203,46 @@ class Index extends Component {
                             </ul>
                         </div>
                     </div>
-                </div>
-            </div>
+                </div> */}
+
+        <div className="picScroll-left">
+			<div className="hd">
+				<a className="next"></a>
+				<ul></ul>
+				<a className="prev"></a>
+				<span className="pageState"></span>
+			</div>
+			<div className="bd">
+				<ul className="picList">
+					<li>
+						<div className="pic"><a href="http://www.SuperSlide2.com" target="_blank"><img src={this.getImages('./pic1.jpg')} /></a></div>
+						<div className="title"><a href="http://www.SuperSlide2.com" target="_blank">效果图1</a></div>
+					</li>
+					<li>
+						<div className="pic"><a href="http://www.SuperSlide2.com" target="_blank"><img src={this.getImages('./pic2.jpg')} /></a></div>
+						<div className="title"><a href="http://www.SuperSlide2.com" target="_blank">效果图2</a></div>
+					</li>
+					<li>
+						<div className="pic"><a href="http://www.SuperSlide2.com" target="_blank"><img src={this.getImages('./pic3.jpg')} /></a></div>
+						<div className="title"><a href="http://www.SuperSlide2.com" target="_blank">效果图3</a></div>
+					</li>
+					<li>
+						<div className="pic"><a href="http://www.SuperSlide2.com" target="_blank"><img src={this.getImages('./pic4.jpg')} /></a></div>
+						<div className="title"><a href="http://www.SuperSlide2.com" target="_blank">效果图4</a></div>
+					</li>
+					<li>
+						<div className="pic"><a href="http://www.SuperSlide2.com" target="_blank"><img src={this.getImages('./pic5.jpg')} /></a></div>
+						<div className="title"><a href="http://www.SuperSlide2.com" target="_blank">效果图5</a></div>
+					</li>
+					<li>
+						<div className="pic"><a href="http://www.SuperSlide2.com" target="_blank"><img src={this.getImages('./pic6.jpg')} /></a></div>
+						<div className="title"><a href="http://www.SuperSlide2.com" target="_blank">效果图6</a></div>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+
             <div className="bottom_show">
                  <img src={this.getImages('./shou7.jpg')} alt="" />
             </div>

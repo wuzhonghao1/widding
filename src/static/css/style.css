@@ -26,7 +26,7 @@ a { text-decoration: none; color: #101010; }
 .fl { float: left; }
 .fr { float: right; }
 input, select { vertical-align: middle; }
-/* .u-fadeInUp { -webkit-animation-name: fadeInUp; animation-name: fadeInUp }
+.u-fadeInUp { -webkit-animation-name: fadeInUp; animation-name: fadeInUp }
 .is-animated { -webkit-animation-duration: .9s; animation-duration: .9s; -webkit-animation-fill-mode: both; animation-fill-mode: both; -webkit-animation-timing-function: cubic-bezier(.4, 0, .2, 1); animation-timing-function: cubic-bezier(.4, 0, .2, 1) }
 @-webkit-keyframes fadeInUp {
 from {
@@ -51,7 +51,7 @@ opacity:1;
 -webkit-transform:none;
 transform:none
 }
-} */
+}
 .wrap_top { background: #444444; height: 35px; width: 100%;position: fixed;top:0px;z-index: 10000; }
 .top { max-width: 1672px;height: 35px; width: 87%; position: fixed; top:0px;z-index: 10000; min-width: 1340px; line-height: 35px; font-size: 16px; margin: auto; color: #a8a8a8; font-family: "DINCond-Bold", \5FAE\8F6F\96C5\9ED1, Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", "serif" }
 .top li { float: right; margin-right: 10px; }
@@ -165,25 +165,64 @@ img {
     margin-top: 20px;
 }
 /*首页新闻中心*/
-.wrap_news { overflow: hidden; height: 550px; background: #1a1a1a  no-repeat center 676px; }
-.news { width: 1300px; overflow: hidden; position: relative; margin: auto;margin-top:50px; }
-.news .prev, .news .next { display: block; width: 39px; height: 42px; position: absolute; overflow: hidden; cursor: pointer; right: 0; top: 190px }
-.news .prev img, .news .next img { margin-top: 3px; }
-.news .next { right: auto; left: 0; }
-.news .bd { width: 1170px; margin: auto }
-.news .bd ul { overflow: hidden; zoom: 1; }
-.news .bd ul li { float: left; _display: inline; overflow: hidden; text-align: center; width: 270px; overflow: hidden; height: 416px; background: #fff; margin-right: 28px; position: relative }
-.news .bd ul li .pic { text-align: center; }
-.news .bd ul li .pic img { width: 270px; height: 190px; }
-.news .bd ul li .pic a:hover img { border-color: #999; }
-.news .bd ul li .title { line-height: 24px; }
-.news .txt { }
-.news .txt h2 { font-size: 18px; color: #4f4f4f; font-weight: normal; padding: 20px; padding-bottom: 0; text-align: left }
-.news .txt p { padding-top: 10px; color: #838383; text-align: left; padding: 20px; padding-bottom: 0; }
-.news .txt span { width: 100%; position: absolute; color: #838383; bottom: 0; left: 0; height: 42px; line-height: 42px; font-size: 12px; border-top: solid 1px #eae3db }
-.news li:hover .txt h2 { color: #ab9171; }
-.news li:hover .txt p { color: #ab9171; }
-.news li:hover .txt span { color: #ab9171; }
+/* .picScroll-left { overflow:hidden; height: 550px; position:relative;background: #1a1a1a  no-repeat center 676px; }
+.picScroll-left .hd { width: 1300px; overflow: hidden;  margin: auto;margin-top:50px; }
+.picScroll-left .hd .next{
+    display: block; 
+    width: 39px; 
+    height: 42px; 
+    position: absolute; 
+    overflow: hidden; 
+    cursor: pointer; 
+    top: 190px;
+    margin-left:28px;
+    background:url("../picture/prev.png") no-repeat;
+}
+.picScroll-left .hd .prev { 
+    display: block; 
+    width: 39px; 
+    height: 42px; 
+    position: absolute; 
+    overflow: hidden; 
+    cursor: pointer; 
+    top: 189px;
+    right:32px; 
+    background:url("../picture/next.png") no-repeat;
+    
+}
+.picScroll-left .hd .next { right: auto; left: 0; }
+.picScroll-left .bd { width: 1170px; margin: auto }
+.picScroll-left .bd ul { overflow: hidden; zoom: 1; }
+.picScroll-left .bd ul li { float: left; _display: inline; overflow:hidden; text-align: center; width: 270px; overflow: hidden; height:400px; background: #fff; margin-right: 28px; position: relative }
+.picScroll-left .bd ul li .pic { text-align: center; }
+.picScroll-left .bd ul li .pic img { width: 270px; height: 190px; }
+.picScroll-left .bd ul li .pic a:hover img { border-color: #999; }
+.picScroll-left .bd ul li .title { line-height: 24px; }
+.picScroll-left .bd ul li .txt { }
+.picScroll-left .bd ul li .txt h2 { font-size: 18px; color: #4f4f4f; font-weight: normal; padding: 20px; padding-bottom: 0; text-align: left }
+.picScroll-left .bd ul li .txt p { padding-top: 10px; color: #838383; text-align: left; padding: 20px; padding-bottom: 0; }
+.picScroll-left .bd ul li .txt span { width: 100%; position: absolute; color: #838383; bottom: 0; left: 0; height: 42px; line-height: 42px; font-size: 12px; border-top: solid 1px #eae3db }
+.picScroll-left .bd ul li:hover .txt h2 { color: #ab9171; }
+.picScroll-left .bd ul li:hover .txt p { color: #ab9171; }
+.picScroll-left .bd ul li:hover .txt span { color: #ab9171; } */
+
+.picScroll-left{ width:450px;  overflow:hidden; position:relative;  border:1px solid #ccc;   }
+.picScroll-left .hd{ overflow:hidden;  height:30px; background:#f4f4f4; padding:0 10px;  }
+.picScroll-left .hd .prev,.picScroll-left .hd .next{ display:block;  width:5px; height:9px; float:right; margin-right:5px; margin-top:10px;  overflow:hidden;
+     cursor:pointer; background:url("../picture/arrow.png") no-repeat;}
+.picScroll-left .hd .next{ background-position:0 -50px;  }
+.picScroll-left .hd .prevStop{ background-position:-60px 0; }
+.picScroll-left .hd .nextStop{ background-position:-60px -50px; }
+.picScroll-left .hd ul{ float:right; overflow:hidden; zoom:1; margin-top:10px; zoom:1; }
+.picScroll-left .hd ul li{ float:left;  width:9px; height:9px; overflow:hidden; margin-right:5px; text-indent:-999px; cursor:pointer; background:url("../picture/icoCircle.gif") 0 -9px no-repeat; }
+.picScroll-left .hd ul li.on{ background-position:0 0; }
+.picScroll-left .bd{ padding:10px;   }
+.picScroll-left .bd ul{ overflow:hidden; zoom:1; }
+.picScroll-left .bd ul li{ margin:0 8px; float:left; _display:inline; overflow:hidden; text-align:center;  }
+.picScroll-left .bd ul li .pic{ text-align:center; }
+.picScroll-left .bd ul li .pic img{ width:120px; height:90px; display:block;  padding:2px; border:1px solid #ccc; }
+.picScroll-left .bd ul li .pic a:hover img{ border-color:#999;  }
+.picScroll-left .bd ul li .title{ line-height:24px;   }
 
 .bottom_show img {width:100%;}
 
@@ -221,8 +260,22 @@ img {
     line-height: 30px;
     margin-top:20px;
 }
-
-
+/*品牌简介*/
+.brand_banner{
+    float:left;
+    margin:0 auto;
+    max-width: 1920px;
+    width:100%;
+}
+.brand_banner img{
+    max-width:100%;
+    vertical-align: middle;
+}
+.pinpai9 {
+    width:100%;
+    text-align: center;
+    padding: 45px 0;
+}
 /*真实评价*/
 .com_banner {
     position: relative;
