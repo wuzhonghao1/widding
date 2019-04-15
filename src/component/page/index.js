@@ -62,7 +62,7 @@ class Index extends Component {
                     <span>FRIEND IS WHO CAN GIVE YOU STRENGTH AT LAST LOVE IS A LAMP,WHILE FRIENDSHIP IS THE SHADOW.WHEN WHE LAMP IS OFF.YOU WILL</span>
                     <span>FIND THE SHADOW EVERYWHERE.FRIEND IS WHO CAN GIVE YOU STRENGTH AT LAST.</span>
                 </div>
-                <div class="wrap_news">
+                <div className="wrap_news">
                     <div className="news"> 
                     <a className="next"><img src={this.getImages('./prev.png')} alt="" /></a> 
                     <a className="prev"><img src={this.getImages('./next.png')} alt="" /></a>
@@ -207,6 +207,11 @@ class Index extends Component {
             <div className="bottom_show">
                  <img src={this.getImages('./shou7.jpg')} alt="" />
             </div>
+            {
+                // console.log(jQuery)
+                
+                // jQuery(".news").slide({ titCell: ".hd ul", mainCell: ".bd ul", autoPage: true, effect: "leftLoop", autoPlay: true, vis: 4, trigger: "click" });
+            }
         </div>
         )
     }
