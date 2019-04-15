@@ -62,11 +62,14 @@ class Index extends Component {
                     <span>FRIEND IS WHO CAN GIVE YOU STRENGTH AT LAST LOVE IS A LAMP,WHILE FRIENDSHIP IS THE SHADOW.WHEN WHE LAMP IS OFF.YOU WILL</span>
                     <span>FIND THE SHADOW EVERYWHERE.FRIEND IS WHO CAN GIVE YOU STRENGTH AT LAST.</span>
                 </div>
-                {/* <div className="picScroll-left">
+
+               {/* <div className="picScroll-left">
                     <div className="hd"> 
                         <a className="next"></a> 
                         <a className="prev"></a>
                     </div>
+
+
                     <div className="bd">
                         <div className="tempWrap" style={{overflow:"hidden", position:"relative", width:"1192px"}}>
                             <ul className="picList" style={{width:"3874px", position:"relative", overflow:"hidden", padding:"0px", margin:"0px", left: "-1788px"}}>
@@ -246,6 +249,7 @@ class Index extends Component {
             <div className="bottom_show">
                  <img src={this.getImages('./shou7.jpg')} alt="" />
             </div>
+        
         </div>
         )
     }

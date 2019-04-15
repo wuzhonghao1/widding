@@ -14,14 +14,10 @@ const images = requireContext.keys()
 
 class CenterMode extends React.Component {
   getImages = (url) => {
-    console.log(images.filter(x => x === url));
+    // console.log(images.filter(x => x === url));
     let image = require("../static/picture" + images.filter(x => x === url)[0].slice(1))
     return image
-}
-  onChange(a, b, c) {
-    console.log(a, b, c);
   }
-  
   render(){
 
     const settings = {
@@ -36,7 +32,7 @@ class CenterMode extends React.Component {
       pauseOnHover:false
     };
     return (
-      <Carousel afterChange={this.onChange} {...settings} className="new_cen">
+      <Carousel  {...settings} className="new_cen">
         <div><img className="newfluid" src={this.getImages('./show01.jpg')} alt=""/><Button><Link to="/show">欣赏更多</Link></Button></div>
         <div><img className="newfluid" src={this.getImages('./show03.jpg')} alt=""/><Button><Link to="/show">欣赏更多</Link></Button></div>
         <div><img className="newfluid" src={this.getImages('./show05.jpg')} alt=""/><Button><Link to="/show">欣赏更多</Link></Button></div>
