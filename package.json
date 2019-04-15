@@ -125,5 +125,8 @@
     "presets": [
       "react-app"
     ]
+  },
+  "devDependencies": {
+    "jquery": "^3.3.1"
   }
 }

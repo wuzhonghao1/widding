@@ -6,7 +6,7 @@ import Brand from "./page/brand";
 import ErrorPage from "./page/error";
 import Empty from "./page/empty";
 import Show from "./page/show";
-import Comment from "./page/comment";
+import Evaluate from "./page/evaluate";
 import Order from "./page/order";
 
 
@@ -27,7 +27,7 @@ class SystemRoute extends Component {
                      {/* 新闻中心页面 */}
                      <Route exact path="/news" component={News} />
                      {/* 真实评价页面 */}
-                    <Route exact path="/comment" component={Comment} />
+                    <Route exact path="/evaluate" component={ Evaluate } />
                      {/* 预约拍摄页面 */}
                      <Route exact path="/order" component={Order} />
                     {/* 错误页面 */}

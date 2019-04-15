@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
-import chinaData from "../../data/chinaData"
-import chinaData1 from "../../data/chinaData1"
-import foreignData from "../../data/foreignData"
-import foreignData1 from "../../data/foreignData1"
+// import chinaData from "../../data/chinaData"
+// import chinaData1 from "../../data/chinaData1"
+// import foreignData from "../../data/foreignData"
+// import foreignData1 from "../../data/foreignData1"
 
 
 const requireContext = require.context("../../static/picture", true, /\.(jpg|jpeg|png)$/);
@@ -27,10 +27,10 @@ class Header extends Component {
                 <div className="wrap_top">
                     <div className="top" id="top">
                         <ul>
-                            <li>0311-85520710</li>
-                            {/* <li id="tmall"><img style={{ "paddingTop": 2 }} src={this.getImages('./tmall.png')} alt="" /></li>  */}
+                            <li id="login"><Link to="/login">登录</Link></li> 
+                            <li>0311-85520710</li>                           
                             <li><a href="https://weibo.com/mokasj?is_hot=1" target="_blank"><img src={this.getImages('./weibo.png')} alt="" /></a></li>
-                            <li id="weixin"><img src={this.getImages('./weixin.png')} alt="" /></li>
+                            <li id="weixin"><img src={this.getImages('./weixin.png')} alt="" /></li>              
                         </ul>
                     </div>
                 </div>
@@ -51,7 +51,7 @@ class Header extends Component {
                                     <a href="/" style={{"color":"#fff","fontSize":"16px","paddingLeft":"17px"}}>网红专区</a>
                                 </ul>
                             </li> */}
-                            <li><Link to="/comment">真实评价</Link></li>
+                            <li><Link to="/evaluate">真实评价</Link></li>
                             <li><Link to="/order">预约拍摄</Link></li>
                         </ul>
                         {/* <dl style={{"paddingRight":0}}>

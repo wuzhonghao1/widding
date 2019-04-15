@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 
 import SystemRoute from './component/router';
 import Header from './component/common/header';
+import Footer from './component/common/footer';
 
 class App extends Component {
   render() {
@@ -9,6 +10,7 @@ class App extends Component {
       <div>
         <Header />
         <SystemRoute />
+        <Footer />
       </div>
     )
   }

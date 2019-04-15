@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 
-class Comment extends Component {
+class Login extends Component {
     render() {
         return (
             <div style={{marginTop:"135px"}}>
-               这里是真实评价页面！
+                这里是登录页！
             </div>
         )
     }
 }
-export default Comment
+export default Login

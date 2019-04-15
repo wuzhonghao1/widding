@@ -44,10 +44,10 @@ h3 {
   padding: 10px;
 }
 .slick-slide img {
-  border: 5px solid #FFF;
+  /* border: 5px solid #FFF; */
   display: block;
   margin: auto;
-  max-width: 80%;
+  max-width: 90%;
 }
 .slick-slide img.slick-loading {
   border: 0
