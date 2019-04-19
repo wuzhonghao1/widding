@@ -2,12 +2,6 @@ import React, { Component } from 'react';
 import { Carousel } from 'antd';
 import { Button } from 'antd';
 import CenterMode from '../centermode';
-import { Link } from 'react-router-dom';
-import $ from  'jquery';
-// import '../../static/js/jquery.min.js';
-// import '../../static/js/jquery.carouFredSel-6.0.4-packed.js';
-// import '../../static/js/jquery.SuperSlide.2.1.1.js';
-
 
 
 const requireContext = require.context("../../static/picture", true, /\.(jpg|jpeg|png)$/);

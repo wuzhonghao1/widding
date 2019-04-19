@@ -8,6 +8,7 @@ import Empty from "./page/empty";
 import Show from "./page/show";
 import Evaluate from "./page/evaluate";
 import Order from "./page/order";
+import Gusetpic from './page/gusetpic';
 
 
 class SystemRoute extends Component {
@@ -24,6 +25,8 @@ class SystemRoute extends Component {
                     <Route exact path="/brand" component={Brand} />
                     {/* 摄影展示页面 */}
                     <Route exact path="/show" component={Show} />
+                    {/*摄影展示二级页面*/}
+                    <Route exact path="/guestpic" component={Gusetpic} />
                      {/* 新闻中心页面 */}
                      <Route exact path="/news" component={News} />
                      {/* 真实评价页面 */}
