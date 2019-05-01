@@ -33,12 +33,12 @@ class CenterMode extends React.Component {
     };
     return (
       <Carousel  {...settings} className="new_cen">
-        <div><img className="newfluid" src={this.getImages('./show01.jpg')} alt=""/><Button><Link to="/show">欣赏更多</Link></Button></div>
-        <div><img className="newfluid" src={this.getImages('./show03.jpg')} alt=""/><Button><Link to="/show">欣赏更多</Link></Button></div>
-        <div><img className="newfluid" src={this.getImages('./show05.jpg')} alt=""/><Button><Link to="/show">欣赏更多</Link></Button></div>
-        <div><img className="newfluid" src={this.getImages('./show06.jpg')} alt=""/><Button ><Link to="/show">欣赏更多</Link></Button></div>
-        <div><img className="newfluid" src={this.getImages('./show07.jpg')} alt=""/><Button><Link to="/show">欣赏更多</Link></Button></div>
-        <div><img className="newfluid" src={this.getImages('./show10.jpg')} alt=""/><Button type="primary"><Link to="/show">欣赏更多</Link></Button></div>
+        <div><img className="newfluid" src={this.getImages('./show01.jpg')} alt=""/><Button className="view_more"><Link to="/show">欣赏更多</Link></Button></div>
+        <div><img className="newfluid" src={this.getImages('./show03.jpg')} alt=""/><Button className="view_more"><Link to="/show">欣赏更多</Link></Button></div>
+        <div><img className="newfluid" src={this.getImages('./show05.jpg')} alt=""/><Button className="view_more"><Link to="/show">欣赏更多</Link></Button></div>
+        <div><img className="newfluid" src={this.getImages('./show06.jpg')} alt=""/><Button className="view_more"><Link to="/show">欣赏更多</Link></Button></div>
+        <div><img className="newfluid" src={this.getImages('./show07.jpg')} alt=""/><Button className="view_more"><Link to="/show">欣赏更多</Link></Button></div>
+        <div><img className="newfluid" src={this.getImages('./show10.jpg')} alt=""/><Button  className="view_more"><Link to="/show">欣赏更多</Link></Button></div>
       </Carousel> 
     )
   }

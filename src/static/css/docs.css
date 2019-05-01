@@ -95,7 +95,7 @@
 .slick-vertical .slick-slide {
   height: 180px;
 }
-.slick-arrow {
+/* .slick-arrow {
   background-color: grey;
 }
 .slick-arrow:hover {
@@ -103,7 +103,7 @@
 }
 .slick-arrow:focus {
   background-color: grey;
-}
+} */
 .button {
   background-color: #00558B;
   padding: 10px 20px;
@@ -113,4 +113,11 @@
   font-size: 20px;
   border-radius: 5px;
   min-height: 45px
+}
+
+.slick-prev:before{
+  content: ''!important;
+}
+.slick-next:before {
+  content: ''!important;
 }
