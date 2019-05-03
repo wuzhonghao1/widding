@@ -48,10 +48,11 @@ class Register extends Component{
         this.props.form.validateFields((err, values) => {
           if (!err) {
             console.log('Received values of form: ', values);
-            axios.post('/api/register',{header:{"Content-Type": "application/x-www-form-urlencoded"}},values)
-                   // JSON.parse(result)
+            axios.post('/api/register',values)
+                   // JSON.parse(result)                   
                     .then((response)=>{
                         console.log(response);
+                        console.log(response.data);
                     })
                     .catch(function(error){
                         console.log(error);

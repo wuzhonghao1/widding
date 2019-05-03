@@ -48,16 +48,18 @@ class Login extends Component{
         this.props.form.validateFields((err, values) => {
           if (!err) {
             console.log('Received values of form: ', values);
-            axios.get("/api/login?status=login&nickname="+values.nickname+"&password="+values.password)
+            axios.get("/api/login?nickname="+values.nickname+"&password="+values.password)
             // JSON.parse(result)
              .then((response)=>{
                  console.log(response);
-                 if(response.data.result==='1'){
-                     window.sessionStorage.setItem('nickname',response.data.datas.nickname);
-                     window.sessionStorage.setItem('password',response.data.datas.password);
-                 }else if(response.data.result==='2'){
+                 console.log(response.data);
+                 if(response.data ==='1'){
+                    //  window.sessionStorage.setItem('nickname',response.data.datas.nickname);
+                    //  window.sessionStorage.setItem('password',response.data.datas.password);
+                    alert("登陆成功");
+                 }else if(response.data ==='2'){
                      alert("用户名与密码不符，请重新输入");
-                 }else if(response.data.result==='3'){
+                 }else if(response.data ==='3'){
                      alert("用户不存在，请重新输入");
                  }
              })
