@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import {
     Button, Modal, Form, Input, Icon, Checkbox, Select , Upload, message,
   } from 'antd';
-
+import axios from 'axios';
 
 const { Option } = Select;
 function getBase64(img, callback) {
@@ -48,6 +48,22 @@ class Login extends Component{
         this.props.form.validateFields((err, values) => {
           if (!err) {
             console.log('Received values of form: ', values);
+            axios.get("/api/login?status=login&nickname="+values.nickname+"&password="+values.password)
+            // JSON.parse(result)
+             .then((response)=>{
+                 console.log(response);
+                 if(response.data.result==='1'){
+                     window.sessionStorage.setItem('nickname',response.data.datas.nickname);
+                     window.sessionStorage.setItem('password',response.data.datas.password);
+                 }else if(response.data.result==='2'){
+                     alert("用户名与密码不符，请重新输入");
+                 }else if(response.data.result==='3'){
+                     alert("用户不存在，请重新输入");
+                 }
+             })
+             .catch(function(error){
+                 console.log(error);
+             });
           }
         });
       }
@@ -64,14 +80,7 @@ class Login extends Component{
           );
           const imageUrl = this.state.imageUrl;
           const { getFieldDecorator } = this.props.form;
-          const prefixSelector = getFieldDecorator('prefix', {
-            initialValue: '86',
-          })(
-            <Select style={{ width: 70 }}>
-              <Option value="86">+86</Option>
-              <Option value="87">+87</Option>
-            </Select>
-          );
+      
          return(
             <Modal
             visible={visible}
@@ -92,27 +101,20 @@ class Login extends Component{
                             {imageUrl ? <img src={imageUrl} alt="avatar" className="userpic"/> : uploadButton}
                         </Upload>
                         <Form.Item className="nick_name">
-                            {getFieldDecorator('W_nickname', {
+                            {getFieldDecorator('nickname', {
                                 rules: [{ required: true, message: '请输入您的用户昵称!' }],
                             })(
-                                <Input prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="用户名" />
+                                <Input prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="请输入您的用户昵称!" />
                             )}
                         </Form.Item>
                         <Form.Item className="password">
-                            {getFieldDecorator('W_password', {
+                            {getFieldDecorator('password', {
                                 rules: [{ required: true, message: '请输入您的密码!' }],
                             })(
-                                <Input prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} type="password" placeholder="用户密码" />
+                                <Input prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} type="password" placeholder="请输入您的密码!" />
                             )}
                         </Form.Item>
-                        {/* <Form.Item className="phone">
-                            {getFieldDecorator('W_phone', {
-                                rules: [{ required: true, message: '请输入您的手机号码!' }],
-                            })(
-                                <Input addonBefore={prefixSelector} placeholder="手机号码"/>
-                            )}
-                        </Form.Item> */}
-                        {/* <div className="register">如果您是本网站的新用户，请点击<Link to="/register">此处注册</Link></div>                                                */}
+                     
                         <Form.Item className="login-btn">
                             <Button type="primary" htmlType="submit" className="login-form-button">
                                     登录

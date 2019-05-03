@@ -98,7 +98,9 @@ class Show extends Component {
             $(this).children(".p-con").children("a").children(".pic-cover").animate({top:"0px"});	
          },function(){
             $(this).children(".p-con").children("a").children(".pic-cover").animate({top:"415px"});	
-         })        
+         })     
+         
+         
     }
     
     getImages = (url) => {

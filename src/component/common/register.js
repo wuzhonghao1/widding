@@ -24,13 +24,11 @@ function getBase64(img, callback) {
   }
   
 
-class Register extends Component{
-  constructor(props){
-       super(props)
-       this.state={
+class Register extends Component{ 
+       state={
           loading: false
        }       
-  }
+
     
       handleChange = (info) => {
         if (info.file.status === 'uploading') {
@@ -50,7 +48,7 @@ class Register extends Component{
         this.props.form.validateFields((err, values) => {
           if (!err) {
             console.log('Received values of form: ', values);
-            axios.post('api/register',values)
+            axios.post('/api/register',{header:{"Content-Type": "application/x-www-form-urlencoded"}},values)
                    // JSON.parse(result)
                     .then((response)=>{
                         console.log(response);
@@ -97,7 +95,7 @@ class Register extends Component{
                             listType="picture-card"
                             className="avatar-uploader"
                             showUploadList={false}
-                            action="/api/imguser"
+                            action="//jsonplaceholder.typicode.com/posts/"
                             beforeUpload={beforeUpload}
                             onChange={this.handleChange}
                         >

@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import {
     Form, Input, Tooltip, Icon, Cascader, Select, Row, Col, Checkbox, Button, AutoComplete, Radio, InputNumber,
     DatePicker
-  } from 'antd';;
-  
+  } from 'antd';
+import axios from 'axios';
+
   const { Option } = Select;
   const AutoCompleteOption = AutoComplete.Option;
   const RadioGroup = Radio.Group;
@@ -71,7 +72,15 @@ class Order extends Component {
         this.props.form.validateFieldsAndScroll((err, values) => {
           if (!err) {
             console.log('Received values of form: ', values);
-          }
+            axios.post('/api/orderAdd',{header:{"Content-Type": "application/x-www-form-urlencoded"}},values)
+            // JSON.parse(result)
+             .then((response)=>{
+                 console.log(response);
+             })
+             .catch(function(error){
+                 console.log(error);
+             });
+            }
         });
       }   
       onChange = (e) => {
@@ -134,7 +143,7 @@ class Order extends Component {
             <div style={{width:"500px",margin:"0 auto",paddingTop:"200px"}}>
                     <Form {...formItemLayout} onSubmit={this.handleSubmit}>
                         <Form.Item  label="姓名">
-                            {getFieldDecorator('O_name', {
+                            {getFieldDecorator('username', {
                                 rules: [{
                                 required: true,
                                 message: '请输入您的姓名',
@@ -144,7 +153,7 @@ class Order extends Component {
                             )}
                         </Form.Item>
                         <Form.Item  label="性别">
-                            {getFieldDecorator('O_sex', {
+                            {getFieldDecorator('sex', {
                                 rules: [{
                                 required: true,
                                 message: '请选择您的性别',
@@ -157,7 +166,7 @@ class Order extends Component {
                             )}
                         </Form.Item>
                         <Form.Item  label="年龄">
-                            {getFieldDecorator('O_age', {
+                            {getFieldDecorator('age', {
                                 rules: [{
                                 required: true,
                                 message: '请输入您的年龄',
@@ -176,7 +185,7 @@ class Order extends Component {
                             </span>
                         )}
                         >
-                            {getFieldDecorator('O_nickname', {
+                            {getFieldDecorator('nickname', {
                                 rules: [{ required: true, message: '请输入您的昵称!', whitespace: true }],
                             })(
                                 <Input />
@@ -186,14 +195,14 @@ class Order extends Component {
                         <Form.Item
                         label="联系方式"
                         >
-                            {getFieldDecorator('O_phone', {
+                            {getFieldDecorator('phone', {
                                 rules: [{ required: true, message: '请输入您的手机号码!' }],
                             })(
                                 <Input addonBefore={prefixSelector} />
                             )}
                         </Form.Item>
                         <Form.Item  label="预约拍摄日期">
-                            {getFieldDecorator('O_ordertime', {
+                            {getFieldDecorator('ordertime', {
                                 rules: [{
                                 required: true,
                                 message: '请选择您的预约拍摄日期',
@@ -204,7 +213,7 @@ class Order extends Component {
                         </Form.Item>
                         
                         <Form.Item  label="预算可用开销">
-                            {getFieldDecorator('O_money', {
+                            {getFieldDecorator('money', {
                                 rules: [{
                                 required: true,
                                 message: '请填写您的预算开销',
@@ -219,7 +228,7 @@ class Order extends Component {
                             )}
                         </Form.Item>
                         <Form.Item  label="预约拍摄系列">
-                            {getFieldDecorator('O_series', {
+                            {getFieldDecorator('orderseries', {
                                 rules: [{
                                 required: true,
                                 message: '请选择您想预约的拍摄系列',
