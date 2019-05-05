@@ -17,9 +17,6 @@ class News extends Component {
             })
             
         })
-        // this.setState({
-        //     newsArr: newsArr
-        // })
     }
     getImages = (url) => {
         let image = require("../../static/picture" + images.filter(x => x === url)[0].slice(1))
