@@ -32,8 +32,8 @@ class SystemRoute extends Component {
                      {/* 新闻中心页面 */}
                      <Route exact path="/news" component={News} />
                      {/*新闻中心详情页*/}
-                     <Route exact path="/news_detail" component={News_detail} />
-                     <Route exact path="/news_detail02" component={News_detail02} />
+                     <Route exact path="/news_detail/:id" component={News_detail} />
+                     {/* <Route exact path="/news_detail02" component={News_detail02} /> */}
                      {/* 真实评价页面 */}
                     <Route exact path="/evaluate" component={ Evaluate } />
                      {/* 预约拍摄页面 */}

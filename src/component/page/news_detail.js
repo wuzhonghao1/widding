@@ -1,9 +1,29 @@
 import React, { Component } from 'react';
-
+import { newsdetail} from '../data/newdetail'
 const requireContext = require.context("../../static/picture", true, /\.(jpg|jpeg|png)$/);
 const images = requireContext.keys()
 
 class News_detail extends Component {
+    state={
+        newsdetail:{}
+    }
+    async componentDidMount(){
+        let id = this.props.match.params.id 
+
+        // 这里调用接口 TODO:
+        // axios.get("接口名称",参数就是上面的这个id)
+        // .then((response) => {
+        //     this.setState({
+        //         newsArr: response.data
+        //     })
+        // })
+        await this.setState({
+            newsdetail: newsdetail
+        })
+        console.log(this.state.newsdetail.title);
+        
+    }
+
     getImages = (url) => {
         let image = require("../../static/picture" + images.filter(x => x === url)[0].slice(1))
         return image
@@ -25,13 +45,12 @@ class News_detail extends Component {
                                  &gt; 返回列表 
                               </a>
                         </div>
-                        <h1>婚纱摄影哪家好？从婚纱开始</h1>
-                        <h2>Time:2018-09-20 14:36:00</h2>
+                        {/* 后台数据前端渲染 */}
+                        <h1>{this.state.newsdetail.title ? this.state.newsdetail.title:""}</h1>
+                        <h2>{this.state.newsdetail.time ? this.state.newsdetail.time : ""}</h2>
                         <div className="article_content_txt" style={{marginTop:"50px"}}>
-                            <p>婚照和情侣照最大的差别，相比就是在服装了。我们在平时的时候，选择服装都是有一个适合自己的身材的服装，
-                                还要考虑到服装款式和风格是不是适合自己的，要知道这个世界上自己欣赏的东西有很多，但是适合自己的确实很少的。
-                                选对婚纱礼服，才能够有完美的三亚婚纱摄影之旅。三亚的婚纱照的拍摄就像是一场三亚之旅，婚纱照的选择的好不好，
-                                是新人对于这一次的三亚婚纱照之旅是否愉快的关键。
+                            <p>
+                            {this.state.newsdetail.content ? this.state.newsdetail.content : ""} 
                             </p>
                             <p>我们首先要和摄影机构预定好自己选择服装时间，这样新人到店后就可以直接挑选婚纱礼服了。相中自己喜欢的婚纱，
                                 就可以联系对方婚纱店了。普通的婚纱店都有试穿的服务，有空的话，不妨预约在平日里。那样，店里顾客相对少一些，
