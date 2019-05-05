@@ -4,10 +4,13 @@ import {
     DatePicker
   } from 'antd';
 import axios from 'axios';
+import moment from 'moment';
+// import locale from 'antd/lib/date-picker/locale/zh_CN';
 
   const { Option } = Select;
   const AutoCompleteOption = AutoComplete.Option;
   const RadioGroup = Radio.Group;
+  const dateFormat = 'YYYY-MM-DD';
   
   const options = [{
     value: '夕颜花开',
@@ -64,7 +67,7 @@ class Order extends Component {
     state = {
         confirmDirty: false,
         autoCompleteResult: [],
-        value: 1, //判断性别单选框
+        // value: 1, //判断性别单选框
       };
 
       handleSubmit = (e) => {
@@ -72,10 +75,16 @@ class Order extends Component {
         this.props.form.validateFieldsAndScroll((err, values) => {
           if (!err) {
             console.log('Received values of form: ', values);
-            axios.post('/api/orderAdd',{header:{"Content-Type": "application/x-www-form-urlencoded"}},values)
+            axios.post('/api/appoint',values)
             // JSON.parse(result)
              .then((response)=>{
                  console.log(response);
+                 console.log(response.data);
+                 if(response.data==='预约成功'){
+                   alert('预约成功！');
+                 }else{
+                     alert('预约失败');
+                 }
              })
              .catch(function(error){
                  console.log(error);
@@ -83,26 +92,12 @@ class Order extends Component {
             }
         });
       }   
-      onChange = (e) => {
-        console.log('radio checked', e.target.value);
-        this.setState({
-          value: e.target.value,
-        });
-      }
-      ageChange = (value)=> {
-        console.log('changed age', value);
-      }
-    timeOrder = (date, dateString)=> {
-        console.log(date, dateString);
-      }
-
-    serSelected = (value) => {
-        console.log(value);
-      }
-
-    Available = (value) => {
-        console.log('Available', value);
-      }
+      // onChange = (e) => {
+      //   console.log('radio checked', e.target.value);
+      //   this.setState({
+      //     value: e.target.value,
+      //   });
+      // }
 
       
     render() {
@@ -134,7 +129,7 @@ class Order extends Component {
         })(
           <Select style={{ width: 70 }}>
             <Option value="86">+86</Option>
-            <Option value="87">+87</Option>
+            {/* <Option value="87">+87</Option> */}
           </Select>
         );
 
@@ -159,9 +154,9 @@ class Order extends Component {
                                 message: '请选择您的性别',
                                 }],
                             })(
-                                <RadioGroup onChange={this.onChange} value={this.state.value}>
-                                    <Radio value={1}>男</Radio>
-                                    <Radio value={2}>女</Radio>                                  
+                                <RadioGroup>
+                                    <Radio value={'男'}>男</Radio>
+                                    <Radio value={'女'}>女</Radio>                                  
                                 </RadioGroup>
                             )}
                         </Form.Item>
@@ -172,7 +167,7 @@ class Order extends Component {
                                 message: '请输入您的年龄',
                                 }],
                             })(
-                                <InputNumber min={20} max={100} defaultValue={25} onChange={this.ageChange} />
+                                <InputNumber min={20} max={100} placeholder="最低年龄为20" />
                             )}
                         </Form.Item>
                         <Form.Item
@@ -188,7 +183,7 @@ class Order extends Component {
                             {getFieldDecorator('nickname', {
                                 rules: [{ required: true, message: '请输入您的昵称!', whitespace: true }],
                             })(
-                                <Input />
+                                <Input placeholder="请输入您的用户昵称"/>
                             )}
                         </Form.Item>
                         
@@ -198,7 +193,7 @@ class Order extends Component {
                             {getFieldDecorator('phone', {
                                 rules: [{ required: true, message: '请输入您的手机号码!' }],
                             })(
-                                <Input addonBefore={prefixSelector} />
+                                <Input addonBefore={prefixSelector} placeholder="请输入您的手机号码"/>
                             )}
                         </Form.Item>
                         <Form.Item  label="预约拍摄日期">
@@ -208,7 +203,7 @@ class Order extends Component {
                                 message: '请选择您的预约拍摄日期',
                                 }],
                             })(
-                                <DatePicker onChange={this.timeOrder} placeholder={'请选择预约拍摄日期'}/>
+                                <DatePicker defaultValue={moment('2019-06-01', dateFormat)} format={dateFormat} placeholder="请选择您的预约拍摄日期"/>
                             )}
                         </Form.Item>
                         
@@ -219,12 +214,11 @@ class Order extends Component {
                                 message: '请填写您的预算开销',
                                 }],
                             })(
-                                <InputNumber
-                                defaultValue={ 1000 } min={1000}
+                                <InputNumber placeholder="请填写您的预算开销，最低为1000" 
+                                min={1000}
                                 formatter={value => `￥ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
                                 parser={value => value.replace(/\￥\s?|(,*)/g, '')}
-                                onChange={this.Available}
-                              />
+                              /> 
                             )}
                         </Form.Item>
                         <Form.Item  label="预约拍摄系列">
@@ -234,7 +228,7 @@ class Order extends Component {
                                 message: '请选择您想预约的拍摄系列',
                                 }],
                             })(
-                                <Cascader options={options} onChange={this.serSelected} changeOnSelect placeholder={'请选择您想预约的拍摄系列'}/>
+                                <Cascader options={options}  changeOnSelect placeholder="请选择您想预约的拍摄系列"/>
                             )}
                         </Form.Item>
                        
