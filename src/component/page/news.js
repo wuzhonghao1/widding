@@ -83,27 +83,20 @@ state = {
 //    ]
     }
 
-    // async componentDidMount(){
-    //    axios.get("/api/articlelist")
-    //     .then((response)=>{
-    //         console.log(response);
-    //         console.log(response.data);
-    //         newsArr=response.data;
-    //         console.log("newsArr"+newsArr);
-    //     })
-    //     .catch(function(error){
-    //         console.log(error);
-    //     });
-
     componentDidMount(){
         // 这里调用接口 TODO:
-        // axios.get("接口名称")
-        // .then((response) => {
-        //     this.setState({
-        //         newsArr: response.data
-        //     })
-        // })
-        this.setState({
+         axios.get("/api/articlelist")
+          .then((response) => {
+               console.log(response);
+               console.log(response.data);
+               this.setState({
+                newsArr: response.data
+               })
+          })
+          .catch(function(error){
+               console.log(error);
+          });
+           this.setState({
             newsArr: newsArr
         })
     }
@@ -113,17 +106,13 @@ state = {
     }
 
     render() {
-        const newlist = newsArr.map((item,index)=>
+        const newlist = this.state.newsArr.map((item,index)=>
                         <li>
                             <div className="n-pic">
-                                <a>
+                                <a href={`${item.href}/${item.id}`}>
                                     <img src={this.getImages(item.articlesrc)} alt="" />
                                     <img className="news-cover" src={this.getImages('./news-cover.png')} alt="" />
-                                <a href={`${item.href}/${item.id}`}>
-                                    <img src={this.getImages(item.src)} alt="" />
-                                    <img className="news-cover" src={this.getImages(item.cov_src)} alt="" />
                                 </a>
-                              </a>
                             </div>
                             <h2>{item.articletitle}</h2>
                             <p>{item.article.content}</p>
@@ -131,7 +120,7 @@ state = {
                                 <span className="smallspp">MK VISION PHOTOGRAPHY</span>
                                 <em>TIME:{item.publishtime}</em>
                             </div>
-                            <a className="browse">NOW BROWSE!</a>
+                            <a className="browse" href={`${item.href}/${item.id}`}>NOW BROWSE!</a>
                         </li>
    )
         return (
