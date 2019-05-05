@@ -53,6 +53,12 @@ class Register extends Component{
                     .then((response)=>{
                         console.log(response);
                         console.log(response.data);
+                        if(response.data==='注册成功'){
+                            alert("注册成功，请登录！");
+                        }else{
+                            alert('用户名已存在！');
+                        }
+
                     })
                     .catch(function(error){
                         console.log(error);

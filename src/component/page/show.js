@@ -9,86 +9,62 @@ class Show extends Component {
         showArr:[{
             href:'http://localhost:3000/#/guestpic',
             src:'./mks04fm.jpg' ,
-            hov_src:'./piccover.png',
             theme:'夕颜花开',
-            remark:'MK VISION WEDDING PHOTOGRAPHY',
             time:'2019-3-7'
      },{    
             href:'/',
             src:'./mks01fm.jpg' ,
-            hov_src:'./piccover.png',
             theme:'烂漫随心',
-            remark:'MK VISION WEDDING PHOTOGRAPHY',
             time:'2019-3-10'
      },{
             href:'/',
             src:'./mks02fm.jpg' ,
-            hov_src:'./piccover.png',
             theme:'蜜恋阳光',
-            remark:'MK VISION WEDDING PHOTOGRAPHY',
             time:'2019-3-15'
      },{
             href:'/',
             src:'./mks03fm.jpg' ,
-            hov_src:'./piccover.png',
             theme:'比翼双飞',
-            remark:'MK VISION WEDDING PHOTOGRAPHY',
             time:'2019-3-18'
      },{
          href:'/',
          src:'./mks05fm.jpg' ,
-         hov_src:'./piccover.png',
          theme:'酒笙倾凉',
-         remark:'MK VISION WEDDING PHOTOGRAPHY',
          time:'2019-3-24'
      },{
          href:'/',
          src:'./mks06fm.jpg' ,
-         hov_src:'./piccover.png',
          theme:'伊人夕岸',
-         remark:'MK VISION WEDDING PHOTOGRAPHY',
          time:'2019-3-26'
      },{
          href:'/',
          src:'./mks07fm.jpg' ,
-         hov_src:'./piccover.png',
          theme:'盛夏约定',
-         remark:'MK VISION WEDDING PHOTOGRAPHY',
          time:'2019-3-28'
      },{
          href:'/',
          src:'./mks08fm.jpg' ,
-         hov_src:'./piccover.png',
          theme:'入骨相思',
-         remark:'MK VISION WEDDING PHOTOGRAPHY',
          time:'2019-3-31'
      },{
          href:'/',
          src:'./mks09fm.jpg' ,
-         hov_src:'./piccover.png',
          theme:'笑逐初夏',
-         remark:'MK VISION WEDDING PHOTOGRAPHY',
          time:'2019-4-1'
      },{
          href:'/',
          src:'./mks10fm.jpg' ,
-         hov_src:'./piccover.png',
          theme:'蓝色告白礼',
-         remark:'MK VISION WEDDING PHOTOGRAPHY',
          time:'2019-4-3'
      },{
          href:'/',
          src:'./mks11fm.jpg' ,
-         hov_src:'./piccover.png',
          theme:'花若浮生',
-         remark:'MK VISION WEDDING PHOTOGRAPHY',
          time:'2019-4-6'
      },{
          href:'/',
          src:'./mks12fm.jpg' ,
-         hov_src:'./piccover.png',
          theme:'爱意永恒',
-         remark:'MK VISION WEDDING PHOTOGRAPHY',
          time:'2019-4-8'
      }]
      
@@ -111,17 +87,17 @@ class Show extends Component {
     render() {
         const showlist = this.state.showArr.map((item,index)=>
             <li>
-                <div class="p-con"> 
+                <div className="p-con"> 
                     <a href={item.href}>
                         <img src={this.getImages(item.src)} alt="" />
                     </a> 
                     <a href={item.href}>
-                        <img class="pic-cover" src={this.getImages(item.hov_src)} alt="" />
+                        <img className="pic-cover" src={this.getImages('./piccover.png')} alt="" />
                     </a> 
                 </div>
                 <div className="p-txt">
                     <h2><a href={item.href}>{item.theme}</a></h2>
-                    <span>{item.remark}</span>
+                    <span>MK VISION WEDDING PHOTOGRAPHY</span>
                     <em>{item.time}</em>
                 </div>
         </li>

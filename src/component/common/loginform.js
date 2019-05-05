@@ -53,13 +53,12 @@ class Login extends Component{
              .then((response)=>{
                  console.log(response);
                  console.log(response.data);
-                 if(response.data ==='1'){
-                    //  window.sessionStorage.setItem('nickname',response.data.datas.nickname);
-                    //  window.sessionStorage.setItem('password',response.data.datas.password);
-                    alert("登陆成功");
-                 }else if(response.data ==='2'){
+                 if(response.data ==='登录成功'){                  
+                    alert("登录成功");
+                    
+                 }else if(response.data ==='密码错误'){
                      alert("用户名与密码不符，请重新输入");
-                 }else if(response.data ==='3'){
+                 }else if(response.data ==='用户不存在'){
                      alert("用户不存在，请重新输入");
                  }
              })
