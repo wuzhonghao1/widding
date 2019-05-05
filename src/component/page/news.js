@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-
 const requireContext = require.context("../../static/picture", true, /\.(jpg|jpeg|png)$/);
 const images = requireContext.keys();
-let newsArr=[];
 
 class News extends Component {
 state = {
+    newsArr:[]
     // newsArr:[
     //         {
     //         href:'http://localhost:3000/#/news_detail0',
@@ -84,17 +83,29 @@ state = {
 //    ]
     }
 
-    async componentDidMount(){
-       axios.get("/api/articlelist")
-        .then((response)=>{
-            console.log(response);
-            console.log(response.data);
-            newsArr=response.data;
-            console.log("newsArr"+newsArr);
+    // async componentDidMount(){
+    //    axios.get("/api/articlelist")
+    //     .then((response)=>{
+    //         console.log(response);
+    //         console.log(response.data);
+    //         newsArr=response.data;
+    //         console.log("newsArr"+newsArr);
+    //     })
+    //     .catch(function(error){
+    //         console.log(error);
+    //     });
+
+    componentDidMount(){
+        // 这里调用接口 TODO:
+        // axios.get("接口名称")
+        // .then((response) => {
+        //     this.setState({
+        //         newsArr: response.data
+        //     })
+        // })
+        this.setState({
+            newsArr: newsArr
         })
-        .catch(function(error){
-            console.log(error);
-        });
     }
     getImages = (url) => {
         let image = require("../../static/picture" + images.filter(x => x === url)[0].slice(1))
@@ -108,7 +119,11 @@ state = {
                                 <a>
                                     <img src={this.getImages(item.articlesrc)} alt="" />
                                     <img className="news-cover" src={this.getImages('./news-cover.png')} alt="" />
+                                <a href={`${item.href}/${item.id}`}>
+                                    <img src={this.getImages(item.src)} alt="" />
+                                    <img className="news-cover" src={this.getImages(item.cov_src)} alt="" />
                                 </a>
+                              </a>
                             </div>
                             <h2>{item.articletitle}</h2>
                             <p>{item.article.content}</p>
