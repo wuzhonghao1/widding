@@ -10,7 +10,7 @@ import Evaluate from "./page/evaluate";
 import Order from "./page/order";
 import Gusetpic from './page/gusetpic';
 import News_detail from './page/news_detail';
-import News_detail02 from './page/news_detail02';
+// import News_detail02 from './page/news_detail02';
 
 
 class SystemRoute extends Component {

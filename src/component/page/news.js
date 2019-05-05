@@ -4,8 +4,8 @@ const requireContext = require.context("../../static/picture", true, /\.(jpg|jpe
 const images = requireContext.keys();
 
 class News extends Component {
-state = {
-    newsArr:[]
+    state = {
+        newsArr:[]
     }
 
     componentDidMount(){
@@ -30,18 +30,18 @@ state = {
         const newlist = this.state.newsArr.length>0?this.state.newsArr.map((item,index)=>
                         <li >
                             <div className="n-pic">
-                                <a href={`${item.href}/${item.id}`}>
+                                <span onClick={()=>this.props.history.push(`news_detail/${item.articleid}`)}>
                                     <img src={this.getImages(item.articlesrc)} alt="" />
                                     <img className="news-cover" src={this.getImages('./news-cover.png')} alt="" />
-                                </a>
+                                </span>
                             </div>
                             <h2>{item.articletitle}</h2>
-                            <p>{item.article.content}</p>
+                            <p>{item.content}</p>
                             <div className="time">
                                 <span className="smallspp">MK VISION PHOTOGRAPHY</span>
                                 <em>TIME:{item.publishtime}</em>
                             </div>
-                            <a className="browse" href={`${item.href}/${item.id}`}>NOW BROWSE!</a>
+                            <a className="browse" onClick={() => this.props.history.push(`news_detail/${item.articleid}`)} >NOW BROWSE!</a>
                         </li>
         ) : ""
         return (

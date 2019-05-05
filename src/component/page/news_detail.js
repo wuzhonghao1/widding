@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { newsdetail} from '../data/newdetail'
+// import { newsdetail} from '../data/newdetail'
+import axios from 'axios';
 const requireContext = require.context("../../static/picture", true, /\.(jpg|jpeg|png)$/);
 const images = requireContext.keys()
 
@@ -12,7 +13,7 @@ class News_detail extends Component {
 
         // 这里调用接口 TODO:
         // axios.get("接口名称",参数就是上面的这个id)
-        axios.get("/api/articlelist",id)
+        axios.get("/api/articlelist", id)
          .then((response) => {
             this.setState({
                 newsArr: response.data
@@ -21,9 +22,9 @@ class News_detail extends Component {
         .catch(function(error){
             console.log(error);
        });
-        await this.setState({
-            newsdetail: newsdetail
-        })
+        // await this.setState({
+        //     newsdetail: newsdetail
+        // })
         console.log(this.state.newsdetail.title);
         
     }
@@ -55,7 +56,7 @@ class News_detail extends Component {
                         <h2>Time:{this.state.newsdetail.publishtime ? this.state.newsdetail.publishtime : ""}</h2>
                         <div className="article_content_txt" style={{marginTop:"50px"}}>
                             <div style={{textAlign: "center"}}>
-                                <img alt="" src={this.getImages(this.state.newsdetail.articlesrc ? this.state.newsdetail.articlesrc : "")} />
+                                {/* <img alt="" src={this.getImages(this.state.newsdetail.articlesrc ? this.state.newsdetail.articlesrc : "")} /> */}
                             </div>    
                             <p>
                                {this.state.newsdetail.content ? this.state.newsdetail.content : ""} 
