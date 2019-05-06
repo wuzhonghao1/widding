@@ -32,12 +32,12 @@ class News extends Component {
                         <li >
                             <div className="n-pic">
                                 <span onClick={()=>this.props.history.push(`news_detail/${item.articleid}`)}>
-                                    <img src={this.getImages(item.articlesrc)} alt="" />
+                                <img src={`http://localhost:8888/upload/${item.articlesrc}`} alt="" />
                                     <img className="news-cover" src={this.getImages('./news-cover.png')} alt="" />
                                 </span>
                             </div>
                             <h2>{item.articletitle}</h2>
-                            <p>{item.content}</p>
+                            <p title={item.content}>{`${item.content.substr(0, 100)}...`}</p>
                             <div className="time">
                                 <span className="smallspp">MK VISION PHOTOGRAPHY</span>
                                 <em>TIME:{item.publishtime}</em>

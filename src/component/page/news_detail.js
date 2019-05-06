@@ -10,23 +10,17 @@ class News_detail extends Component {
     }
     async componentDidMount(){
         let id = this.props.match.params.id 
-
-        // 这里调用接口 TODO:
-        // axios.get("接口名称",参数就是上面的这个id)
-        axios.get("/api/articlelist", id)
-         .then((response) => {
+        // 状态码什么的完善一下
+        axios.post(`/api/articlelistdetail`,{
+            id 
+        }).then((response) => {
             this.setState({
-                newsArr: response.data
+                newsdetail: response.data
             })
         })
         .catch(function(error){
             console.log(error);
-       });
-        // await this.setState({
-        //     newsdetail: newsdetail
-        // })
-        console.log(this.state.newsdetail.title);
-        
+        });
     }
 
     getImages = (url) => {
@@ -56,9 +50,9 @@ class News_detail extends Component {
                         <h2>Time:{this.state.newsdetail.publishtime ? this.state.newsdetail.publishtime : ""}</h2>
                         <div className="article_content_txt" style={{marginTop:"50px"}}>
                             <div style={{textAlign: "center"}}>
-                                {/* <img alt="" src={this.getImages(this.state.newsdetail.articlesrc ? this.state.newsdetail.articlesrc : "")} /> */}
+                                <img alt="" src={`http://localhost:8888/upload/${this.state.newsdetail.articlesrc}`} />
                             </div>    
-                            <p>
+                            <p style={{marginTop:30}}>
                                {this.state.newsdetail.content ? this.state.newsdetail.content : ""} 
                             </p>                           
                         </div>
