@@ -1,0 +1,7 @@
+.kepian_list li .pic-cover{
+    top:415px;
+    transition: all linear 0.5s;
+}
+.kepian_list li:hover .pic-cover{
+    top:0;
+}

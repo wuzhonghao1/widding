@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import $ from  'jquery';
 import axios from 'axios';
+import "./show.css"
 const requireContext = require.context("../../static/picture", true, /\.(jpg|jpeg|png)$/);
 const images = requireContext.keys()
 
@@ -18,13 +19,6 @@ class Show extends Component {
         .catch(function (error) {
             console.log(error);
         });
-        // 这块放在css里面去写
-        // $(".kepian_list li").hover(function () {
-        //     $(this).children(".p-con").children("a").children(".pic-cover").animate({ top: "0px" });
-        // }, function () {
-        //     $(this).children(".p-con").children("a").children(".pic-cover").animate({ top: "415px" });
-        // })  
-        
     }
     
     getImages = (url) => {
