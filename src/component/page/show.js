@@ -1,80 +1,30 @@
 import React, { Component } from 'react';
 import $ from  'jquery';
-
+import axios from 'axios';
 const requireContext = require.context("../../static/picture", true, /\.(jpg|jpeg|png)$/);
 const images = requireContext.keys()
 
 class Show extends Component {
     state = {
-        showArr:[{
-            href:'http://localhost:3000/#/guestpic',
-            src:'./mks04fm.jpg' ,
-            theme:'夕颜花开',
-            time:'2019-3-7'
-     },{    
-            href:'/',
-            src:'./mks01fm.jpg' ,
-            theme:'烂漫随心',
-            time:'2019-3-10'
-     },{
-            href:'/',
-            src:'./mks02fm.jpg' ,
-            theme:'蜜恋阳光',
-            time:'2019-3-15'
-     },{
-            href:'/',
-            src:'./mks03fm.jpg' ,
-            theme:'比翼双飞',
-            time:'2019-3-18'
-     },{
-         href:'/',
-         src:'./mks05fm.jpg' ,
-         theme:'酒笙倾凉',
-         time:'2019-3-24'
-     },{
-         href:'/',
-         src:'./mks06fm.jpg' ,
-         theme:'伊人夕岸',
-         time:'2019-3-26'
-     },{
-         href:'/',
-         src:'./mks07fm.jpg' ,
-         theme:'盛夏约定',
-         time:'2019-3-28'
-     },{
-         href:'/',
-         src:'./mks08fm.jpg' ,
-         theme:'入骨相思',
-         time:'2019-3-31'
-     },{
-         href:'/',
-         src:'./mks09fm.jpg' ,
-         theme:'笑逐初夏',
-         time:'2019-4-1'
-     },{
-         href:'/',
-         src:'./mks10fm.jpg' ,
-         theme:'蓝色告白礼',
-         time:'2019-4-3'
-     },{
-         href:'/',
-         src:'./mks11fm.jpg' ,
-         theme:'花若浮生',
-         time:'2019-4-6'
-     },{
-         href:'/',
-         src:'./mks12fm.jpg' ,
-         theme:'爱意永恒',
-         time:'2019-4-8'
-     }]
-     
+        showArr:[]
     }
     async componentDidMount(){
-        $(".kepian_list li").hover(function () {
-            $(this).children(".p-con").children("a").children(".pic-cover").animate({ top: "0px" });
-        }, function () {
-            $(this).children(".p-con").children("a").children(".pic-cover").animate({ top: "415px" });
-        })  
+        axios.get("/api/showlist")
+        .then((response) => {
+            this.setState({
+                showArr: response.data
+            })
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+        // 这块放在css里面去写
+        // $(".kepian_list li").hover(function () {
+        //     $(this).children(".p-con").children("a").children(".pic-cover").animate({ top: "0px" });
+        // }, function () {
+        //     $(this).children(".p-con").children("a").children(".pic-cover").animate({ top: "415px" });
+        // })  
+        
     }
     
     getImages = (url) => {
@@ -86,15 +36,15 @@ class Show extends Component {
         const showlist = this.state.showArr.map((item,index)=>
             <li>
                 <div className="p-con"> 
-                    <a onClick={() => this.props.history.push(`guestpic/${item.id}`)}>
-                        <img src={this.getImages(item.src)} alt="" />
+                    <a onClick={() => this.props.history.push(`guestpic/${item.photoid}`)}>
+                        <img src={`http://localhost:8888/upload/${item.photosrc}`} alt="" />
                     </a> 
-                    <a onClick={() => this.props.history.push(`guestpic/${item.id}`)}>
+                    <a onClick={() => this.props.history.push(`guestpic/${item.photoid}`)}>
                         <img className="pic-cover" src={this.getImages('./piccover.png')} alt="" />
                     </a> 
                 </div>
                 <div className="p-txt">
-                    <h2><a onClick={() => this.props.history.push(`guestpic/${item.id}`)}>{item.theme}</a></h2>
+                    <h2><a onClick={() => this.props.history.push(`guestpic/${item.photoid}`)}>{item.photoseries}</a></h2>
                     <span>MK VISION WEDDING PHOTOGRAPHY</span>
                     <em>{item.time}</em>
                 </div>
@@ -124,188 +74,9 @@ class Show extends Component {
                 <div className="kepian_list">
                     <ul>
                         {showlist}    
-                        {/* <li>
-                            <div class="p-con"> 
-                                 <a href={item.href}>
-                                       <img src={this.getImages('./mks04fm.jpg')} alt="" />
-                                 </a> 
-                                 <a href={item.href}>
-                                      <img class="pic-cover" src={this.getImages('./piccover.png')} alt="夕颜花开" />
-                                </a> 
-                            </div>
-                            <div className="p-txt">
-                                <h2><a href="#">夕颜花开</a></h2>
-                                <span>MK VISION WEDDING PHOTOGRAPHY</span>
-                                <em>TIME:2019-03-31</em>
-                            </div>
-                        </li>
-                        <li>
-                            <div className="p-con"> 
-                                <a href="#">
-                                   <img src={this.getImages('./mks01fm.jpg')} alt="" />
-                                </a> 
-                                <a href="#">
-                                   <img className="pic-cover" src={this.getImages('./piccover.png')} alt="烂漫随心"  />
-                                </a> 
-                            </div>
-                            <div className="p-txt">
-                                <h2><a href="/">烂漫随心</a></h2>
-                                <span>MK VISION WEDDING PHOTOGRAPHY</span>
-                                <em>TIME:2019-03-31</em>
-                            </div>
-                        </li>
-                        <li>
-                            <div className="p-con"> 
-                                <a href="#">
-                                    <img src={this.getImages('./mks02fm.jpg')} alt="" />
-                                </a> 
-                                <a href="#">
-                                   <img className="pic-cover" src={this.getImages('./piccover.png')} alt="蜜恋阳光"  />
-                                </a> 
-                            </div>
-                            <div className="p-txt">
-                                <h2><a href="#">蜜恋阳光</a></h2>
-                                <span>MK VISION WEDDING PHOTOGRAPHY</span>
-                                <em>TIME:2019-03-31</em>
-                            </div>
-                        </li>
-                        <li style={{marginRight:0}}>
-                            <div className="p-con"> 
-                                 <a href="#">
-                                    <img src={this.getImages('./mks03fm.jpg')} alt="" />
-                                 </a> 
-                                <a href="#">
-                                   <img className="pic-cover" src={this.getImages('./piccover.png')} alt="比翼双飞"  />
-                                </a> 
-                            </div>
-                            <div className="p-txt">
-                                <h2><a href="#">比翼双飞</a></h2>
-                                <span>MK VISION WEDDING PHOTOGRAPHY</span>
-                                <em>TIME:2019-02-17</em>
-                            </div>
-                        </li>
-                        <li>
-                            <div className="p-con"> 
-                                <a href="#">
-                                    <img src={this.getImages('./mks05fm.jpg')} alt="" />
-                                </a> 
-                                <a href="#">
-                                    <img className="pic-cover" src={this.getImages('./piccover.png')} alt="酒笙倾凉"  />
-                                </a> 
-                            </div>
-                            <div className="p-txt">
-                                <h2><a href="#">酒笙倾凉</a></h2>
-                                <span>MK VISION WEDDING PHOTOGRAPHY</span>
-                                <em>TIME:2019-02-17</em>
-                            </div>
-                        </li>
-                        <li>
-                            <div className="p-con"> 
-                                <a href="#">
-                                    <img src={this.getImages('./mks06fm.jpg')} alt="" />
-                                </a> 
-                                <a href="#">
-                                   <img className="pic-cover" src={this.getImages('./piccover.png')} alt="伊人夕岸"  />
-                                </a> 
-                            </div>
-                            <div className="p-txt">
-                                <h2><a href="#">伊人夕岸</a></h2>
-                                <span>MK VISION WEDDING PHOTOGRAPHY</span>
-                                <em>TIME:2019-02-17</em>
-                            </div>
-                        </li>
-                        <li>
-                            <div className="p-con"> 
-                                <a href="#">
-                                   <img src={this.getImages('./mks07fm.jpg')} alt="" />
-                                </a> 
-                                <a href="#">
-                                    <img className="pic-cover" src={this.getImages('./piccover.png')} alt="盛夏约定"  />
-                                </a> 
-                            </div>
-                            <div className="p-txt">
-                                <h2><a href="/">盛夏约定</a></h2>
-                                <span>MK VISION WEDDING PHOTOGRAPHY</span>
-                                <em>TIME:2019-02-17</em>
-                            </div>
-                        </li>
-                        <li style={{marginRight:0}}>
-                            <div className="p-con"> 
-                                <a href="#">
-                                    <img src={this.getImages('./mks08fm.jpg')} alt="" />
-                                </a> 
-                                <a href="#">
-                                    <img className="pic-cover" src={this.getImages('./piccover.png')} alt="入骨相思"  />
-                                </a> 
-                            </div>
-                            <div className="p-txt">
-                                <h2><a href="#">入骨相思</a></h2>
-                                <span>MK VISION WEDDING PHOTOGRAPHY</span>
-                                <em>TIME:2019-02-17</em>
-                            </div>
-                        </li>
-                        <li>
-                           <div className="p-con"> 
-                                <a href="#">
-                                   <img src={this.getImages('./mks09fm.jpg')} alt="" />
-                                </a> 
-                                <a href="#">
-                                    <img className="pic-cover" src={this.getImages('./piccover.png')} alt="笑逐初夏"  />
-                                </a> 
-                            </div>
-                            <div className="p-txt">
-                                <h2><a href="#">笑逐初夏</a></h2>
-                                <span>MK VISION WEDDING PHOTOGRAPHY</span>
-                                <em>TIME:2019-02-17</em>
-                            </div>
-                        </li>
-                        <li>
-                           <div className="p-con"> 
-                                <a href="#">
-                                    <img src={this.getImages('./mks10fm.jpg')} alt="" />
-                                </a> 
-                                <a href="#">
-                                     <img className="pic-cover" src={this.getImages('./piccover.png')} alt="蓝色告白礼" />
-                                </a> 
-                            </div>
-                            <div className="p-txt">
-                                <h2><a href="#">蓝色告白礼</a></h2>
-                                <span>MK VISION WEDDING PHOTOGRAPHY</span>
-                                <em>TIME:2019-02-17</em>
-                            </div>
-                        </li>
-                        <li>
-                           <div className="p-con"> 
-                               <a href="#">
-                                   <img src={this.getImages('./mks11fm.jpg')} alt="" />
-                                </a> 
-                                <a href="#">
-                                   <img className="pic-cover" src={this.getImages('./piccover.png')} alt="花若浮生"  />
-                                </a> 
-                            </div>
-                            <div className="p-txt">
-                                <h2><a href="#">花若浮生</a></h2>
-                                <span>MK VISION WEDDING PHOTOGRAPHY</span>
-                                <em>TIME:2019-01-08</em>
-                            </div>
-                        </li>
-                        <li style={{marginRight:0}}>
-                            <div className="p-con"> 
-                                <a href="#">
-                                    <img src={this.getImages('./mks12fm.jpg')} alt="" />
-                                </a> 
-                                <a href="#">
-                                    <img className="pic-cover" src={this.getImages('./piccover.png')} alt="爱意永恒" />
-                                </a> 
-                            </div>
-                            <div className="p-txt">
-                                <h2><a href="#">爱意永恒</a></h2>
-                                <span>MK VISION WEDDING PHOTOGRAPHY</span>
-                                <em>TIME:2019-01-08</em>
-                            </div>
-                        </li> */}
                     </ul>                   
                 </div>
+                
             </div>
         )
     }

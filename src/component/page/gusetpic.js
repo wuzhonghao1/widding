@@ -9,6 +9,7 @@ class Gusetpic extends Component {
         visible:false
     }
     async componentDidMount(){
+        
     }
     getImages = (url) => {
         let image = require("../../static/picture" + images.filter(x => x === url)[0].slice(1))
@@ -115,17 +116,7 @@ class Gusetpic extends Component {
                         </div>                           */}
                     </div>
                 </div>
-                {/* <Modal
-                    title=""
-                    width={"auto"}
-                    visible={this.state.visible}
-                    footer={null}
-                    onOk={()=>this.setState({ visible: false })}
-                    onCancel={()=>this.setState({ visible: false })}
-                >
-                    <img src={this.getImages('./mks04_1.jpg')} alt="0" /> 
-                </Modal> */}
-               
+                
             </div>
         )
     }
