@@ -28,7 +28,7 @@ class SystemRoute extends Component {
                     {/* 摄影展示页面 */}
                     <Route exact path="/show" component={Show} />
                     {/*摄影展示二级页面*/}
-                    <Route exact path="/guestpic" component={Gusetpic} />
+                    <Route exact path="/guestpic/:id" component={Gusetpic} />
                      {/* 新闻中心页面 */}
                      <Route exact path="/news" component={News} />
                      {/*新闻中心详情页*/}

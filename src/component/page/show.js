@@ -70,13 +70,11 @@ class Show extends Component {
      
     }
     async componentDidMount(){
-        $(".kepian_list li").hover(function(){
-            $(this).children(".p-con").children("a").children(".pic-cover").animate({top:"0px"});	
-         },function(){
-            $(this).children(".p-con").children("a").children(".pic-cover").animate({top:"415px"});	
-         })     
-         
-         
+        $(".kepian_list li").hover(function () {
+            $(this).children(".p-con").children("a").children(".pic-cover").animate({ top: "0px" });
+        }, function () {
+            $(this).children(".p-con").children("a").children(".pic-cover").animate({ top: "415px" });
+        })  
     }
     
     getImages = (url) => {
@@ -88,15 +86,15 @@ class Show extends Component {
         const showlist = this.state.showArr.map((item,index)=>
             <li>
                 <div className="p-con"> 
-                    <a href={item.href}>
+                    <a onClick={() => this.props.history.push(`guestpic/${item.id}`)}>
                         <img src={this.getImages(item.src)} alt="" />
                     </a> 
-                    <a href={item.href}>
+                    <a onClick={() => this.props.history.push(`guestpic/${item.id}`)}>
                         <img className="pic-cover" src={this.getImages('./piccover.png')} alt="" />
                     </a> 
                 </div>
                 <div className="p-txt">
-                    <h2><a href={item.href}>{item.theme}</a></h2>
+                    <h2><a onClick={() => this.props.history.push(`guestpic/${item.id}`)}>{item.theme}</a></h2>
                     <span>MK VISION WEDDING PHOTOGRAPHY</span>
                     <em>{item.time}</em>
                 </div>
@@ -125,7 +123,7 @@ class Show extends Component {
                 </div>
                 <div className="kepian_list">
                     <ul>
-                        {showlist}                   
+                        {showlist}    
                         {/* <li>
                             <div class="p-con"> 
                                  <a href={item.href}>
