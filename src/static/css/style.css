@@ -72,7 +72,7 @@ transform:none
 .regis-btn{margin-left:155px !important;}
 .top li img { float: left; margin-top: 10px; } 
 .weixin_open { position: absolute; top: -7px; right: 200px; display: none;}
-.wrap_header { background: #1a1a1a; color: #fff; position: fixed;width:100%;top:35px;height:100px;z-index:12;}
+.wrap_header { background: #1a1a1a; color: #fff; position: fixed;width:100%;top:35px;height:100px;z-index:11;}
 .header { max-width: 1834px; width: 78%; min-width: 1300px; height: 100px; margin: auto; position: fixed}
 .header img.logo { float: left; margin-left:3%}
 .header img.logo:hover { transform: scale(1); }

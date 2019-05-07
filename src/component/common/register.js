@@ -36,6 +36,9 @@ class Register extends Component{
           return;
         }
         if (info.file.status === 'done') {
+          this.setState({
+            picUrl: info.file.name
+          })
           // Get this url from response in real world.
           getBase64(info.file.originFileObj, imageUrl => this.setState({
             imageUrl,
@@ -48,15 +51,19 @@ class Register extends Component{
         this.props.form.validateFields((err, values) => {
           if (!err) {
             console.log('Received values of form: ', values);
-            axios.post('/api/register',values)
-                   // JSON.parse(result)                   
+            let submitData = {
+              pic: this.state.picUrl,
+              ...values
+            }
+            axios.post('/api/register', submitData)
+                   // JSON.parse(result)         
                     .then((response)=>{
                         console.log(response);
                         console.log(response.data);
                         if(response.data==='注册成功'){
-                            alert("注册成功，请登录！");
+                            message.success("注册成功", 2).then(()=>{window.location.reload() })
                         }else{
-                            alert('用户名已存在！');
+                            message.error("用户已存在！")
                         }
 
                     })
@@ -102,7 +109,7 @@ class Register extends Component{
                             listType="picture-card"
                             className="avatar-uploader"
                             showUploadList={false}
-                            action="//jsonplaceholder.typicode.com/posts/"
+                            action="api/fileupload"
                             beforeUpload={beforeUpload}
                             onChange={this.handleChange}
                         >

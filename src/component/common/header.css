@@ -1,0 +1,11 @@
+#weixin{
+    position: relative;
+}
+#weixin .weixin_open{
+    position: absolute;
+    top: 70%;left: auto;right:0%;
+    display: none;
+}
+#weixin:hover .weixin_open{
+    display: block;
+}

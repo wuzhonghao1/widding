@@ -6,7 +6,9 @@ import {
 import LoginForm from './loginform';
 import RegisForm from './register';
 import $ from 'jquery';
-
+import  "./header.css";
+const nickname = window.sessionStorage.getItem('nickname')
+const pic = window.sessionStorage.getItem('pic')
 const requireContext = require.context("../../static/picture", true, /\.(jpg|jpeg|png)$/);
 const images = requireContext.keys()
 class Header extends Component {
@@ -14,11 +16,11 @@ class Header extends Component {
         visible: false,
     }
     async componentDidMount(){
-        $("#weixin").hover(function(){
-            $(".weixin_open").show(500);
-        },function(){
-            $(".weixin_open").hide(500);
+        this.setState({
+            nickname:nickname
         })
+
+
     }
     showModal = () => {
         this.setState({ visible: true });
@@ -58,15 +60,25 @@ class Header extends Component {
                 <div className="wrap_top">
                     <div className="top" id="top">
                         <ul>
-                            <li id="login">
-                                <a onClick={this.showModal}>登录</a>
-                            </li>
-                            <li id="regis">
-                                <a onClick={this.showModal2}>注册</a>
-                            </li>  
+                            {
+                                this.state.nickname ? <li id="login">
+                                    <a>{this.state.nickname}</a>
+                                </li>:<div>
+                                    <li id="login">
+                                        <a onClick={this.showModal}>登录</a>
+                                    </li>
+                                    <li id="regis">
+                                        <a onClick={this.showModal2}>注册</a>
+                                    </li>  
+                                </div>
+                            }
                             <li>0311-85520710</li>                           
                             <li><a href="https://weibo.com/mokasj?is_hot=1" target="_blank"><img src={this.getImages('./weibo.png')} alt="" /></a></li>
-                            <li id="weixin"><img src={this.getImages('./weixin.png')} alt="" /></li>              
+                            <li id="weixin"><img src={this.getImages('./weixin.png')} alt="" />
+                                <div className="weixin_open">
+                                    <img src={this.getImages('./weixin_open.png')} alt="" />
+                                </div>
+                            </li>              
                         </ul>                       
                     </div>
                 </div>
@@ -82,9 +94,7 @@ class Header extends Component {
                             <li><Link to="/evaluate">真实评价</Link></li>
                             <li><Link to="/order">预约拍摄</Link></li>
                         </ul>
-                        <div className="weixin_open">
-                            <img src={this.getImages('./weixin_open.png')} alt="" />
-                        </div>
+                        
                     </div>
                 </div>                
                 <LoginForm
