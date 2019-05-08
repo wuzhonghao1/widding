@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import $ from  'jquery';
 import axios from 'axios';
 import "./show.css"
 const requireContext = require.context("../../static/picture", true, /\.(jpg|jpeg|png)$/);
@@ -54,7 +53,7 @@ class Show extends Component {
                     <div className="txt"> 
                         <span className="sp1"> 
                             <img className="sp_l" src={this.getImages('./index-movie_1.png')} alt="" /> 
-                            <a href="http://cloud.video.taobao.com//play/u/1910949384/p/2/e/6/t/1/50076176739.mp4" target="_blank">
+                            <a href="http://cloud.video.taobao.com//play/u/1910949384/p/2/e/6/t/1/50076176739.mp4" target={"_blank"}>
                                <img className="sp_c" src={this.getImages('./index-movie_3.png')} alt="" />
                             </a> 
                             <img className="sp_r" src={this.getImages('./index-movie_2.png')} alt="" /> 
