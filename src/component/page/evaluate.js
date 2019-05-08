@@ -62,6 +62,8 @@ class Evaluate extends Component {
     return image
   }
   handleSubmit = () => {
+    console.log(this.state.value);
+    
     if (!this.state.value) {
       return;
     }
@@ -69,22 +71,24 @@ class Evaluate extends Component {
     this.setState({
       submitting: true,
     });
+    axios.post('api/publishjudge',{
+      nickname: nickname,
+      judgetime: moment().format('YYYY-MM-DD HH:mm:ss'),
+      pic:pic,
+      content: this.state.value
+    }).then(response=>{
+      if (response.data ==='评价成功！'){
+        this.setState({
+          submitting: false,
+        });
+        axios.get('api/judgelist').then(response => {
+          this.setState({
+            data: response.data
+          })
 
-    setTimeout(() => {
-      this.setState({
-        submitting: false,
-        value: '',
-        comments: [
-          {
-            author: 'Han Solo',
-            avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
-            content: <p>{this.state.value}</p>,
-            datetime: moment().fromNow(),
-          },
-          ...this.state.comments,
-        ],
-      });
-    }, 1000);
+        })
+      }
+    })
   }
   handleChange = (e) => {
     this.setState({
@@ -115,11 +119,12 @@ class Evaluate extends Component {
                         />
                         )}
                     />
-                    <div className="add_comment">
+                    {
+                      nickname ? <div className="add_comment">
                         {comments.length > 0 && <CommentList comments={comments} />}
                         <Comment
                           avatar={(
-                            <Avatar 
+                            <Avatar
                               src={`http://localhost:8888/upload/${pic}`}
                               title={nickname}
                             />
@@ -133,7 +138,9 @@ class Evaluate extends Component {
                             />
                           )}
                         />
-                    </div>
+                      </div>:""
+                    }
+                    
             </div>
         )
     }

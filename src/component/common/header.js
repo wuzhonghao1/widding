@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import {
-    Button, Modal,Form, Input, Radio, Icon, Checkbox,message
+    Modal,message
   } from 'antd';
 import LoginForm from './loginform';
 import RegisForm from './register';
-import $ from 'jquery';
 import  "./header.css";
 const confirm = Modal.confirm;
 const nickname = window.sessionStorage.getItem('nickname')
-const pic = window.sessionStorage.getItem('pic')
 const requireContext = require.context("../../static/picture", true, /\.(jpg|jpeg|png)$/);
 const images = requireContext.keys()
 class Header extends Component {
@@ -81,7 +79,6 @@ class Header extends Component {
                                             window.sessionStorage.removeItem('nickname')
                                             window.sessionStorage.removeItem('pic')
                                             this.showConfirm()
-                                            // message.success("退出成功", 2).then(()=>{window.location.reload() })
                                         }}>退出登录</a>
                                     </li>
                                     <li id="login">

@@ -54,7 +54,7 @@ class Gusetpic extends Component {
                                 <img layer-src={this.getImages('./mks04_2.jpg')} src={this.getImages('./mks04_2.jpg')} alt="1" /> 
                             </div>
                         </div>
-                        {/* <div className="all_item">
+                        <div className="all_item">
                             <div className="item"> 
                                  <img src={this.getImages('./mks04_2.jpg')} alt="1"  /> 
                             </div>
@@ -113,7 +113,7 @@ class Gusetpic extends Component {
                             <div className="item"> 
                                   <img src={this.getImages('./mks04_13.jpg')} alt="12"  /> 
                             </div>
-                        </div>                           */}
+                        </div>                          
                     </div>
                 </div>
                 
