@@ -191,7 +191,9 @@ class Order extends Component {
                         label="联系方式"
                         >
                             {getFieldDecorator('phone', {
-                                rules: [{ required: true, message: '请输入您的手机号码!' }],
+                              rules: [{ required: true, message: '请输入您的手机号码!'},{
+                                len: 11, message:'手机号码为11位！'
+                                }],
                             })(
                                 <Input addonBefore={prefixSelector} placeholder="请输入您的手机号码"/>
                             )}

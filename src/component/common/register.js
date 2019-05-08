@@ -124,14 +124,14 @@ class Register extends Component{
                         </Form.Item>
                         <Form.Item className="password">
                             {getFieldDecorator('password', {
-                                rules: [{ required: true, message: '请输入您的密码!' }],
+                              rules: [{ required: true, message: '请输入您的密码!' }, { min: 6, message: '密码长度不小于6位!'}],
                             })(
                                 <Input prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} type="password"  placeholder="请输入您的密码" />
                             )}
                         </Form.Item>
                         <Form.Item className="phone">
                             {getFieldDecorator('phone', {
-                                rules: [{ required: true, message: '请输入您的手机号码!' }],
+                              rules: [{ required: true, message: '请输入您的手机号码!' }, {len: 11, message: "手机号长度为11位！"}],
                             })(
                                 <Input  placeholder="请输入您的手机号码!" />
                             )}
