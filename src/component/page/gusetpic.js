@@ -15,7 +15,8 @@ class Gusetpic extends Component {
             if (response.data.responseCode ==='000000'){
                 this.setState({
                     list: response.data.data,
-                    listtime: response.data.time
+                    listtime: response.data.time,
+                    listname: response.data.name,
                 })
             }
         })
@@ -55,7 +56,7 @@ class Gusetpic extends Component {
                 </div>
                 <div className="article_content show_kepian">
                     <div className="back_list"><a href="http://localhost:3000/#/show"> &lt; 返回列表 </a></div>
-                    <h1>夕颜花开</h1>
+                    <h1>{this.state.listname ? this.state.listname:""}</h1>
                     <h2>Time: {this.state.listtime ? moment(this.state.listtime).format('YYYY-MM-DD'):""}</h2>
                     <div className="description"></div>
                     <div className="container" id='layer-photos-demo'>
