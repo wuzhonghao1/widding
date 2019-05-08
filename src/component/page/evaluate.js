@@ -112,8 +112,8 @@ class Evaluate extends Component {
                             author={item.nickname}
                             avatar={`http://localhost:8888/upload/${item.pic}`}
                             content={item.judgecontent}
-                            datetime={<Tooltip title={moment().subtract(1, 'month').format('YYYY-MM-DD HH:mm:ss')}>
-                                {item.judgetime}
+                            datetime={<Tooltip title={moment(item.judgetime).format('YYYY-MM-DD HH:mm:ss')}>
+                              {moment(item.judgetime).endOf('day').fromNow()}
                               </Tooltip> 
                             }
                         />
