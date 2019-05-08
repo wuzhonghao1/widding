@@ -52,7 +52,7 @@ class Gusetpic extends Component {
                     </div>
                 </div>
                 <div className="article_content show_kepian">
-                    <div className="back_list"><a href="http://localhost:3000/#/show"> >返回列表 </a></div>
+                    <div className="back_list"><a href="http://localhost:3000/#/show"> &lt; 返回列表 </a></div>
                     <h1>夕颜花开</h1>
                     <h2>Time:2019-3-7 16:27:46</h2>
                     <div className="description"></div>

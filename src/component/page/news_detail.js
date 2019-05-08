@@ -41,7 +41,7 @@ class News_detail extends Component {
                     <div className="article_content">
                         <div className="back_list">
                               <a href="http://localhost:3000/#/news"> 
-                                 &gt; 返回列表 
+                                 &lt; 返回列表 
                               </a>
                         </div>
                                                                     
